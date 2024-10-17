@@ -1,9 +1,7 @@
 import { View, Text, SafeAreaView, StyleSheet} from 'react-native'
-import React from 'react'
 
 
-
-export default function Brackgorund({children}) {
+export default function Background({children}) {
   return (
     <SafeAreaView style={styles.container}>
       <View>{children}</View>

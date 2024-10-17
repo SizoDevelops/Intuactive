@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Brackgorund from './components/Brackgorund';
-import Index from './app';
+import Brackgorund from './components/Background';
+import Main from './shared/main';
+
 
 export default function App() {
   return (
-    <Brackgorund >
-      <Index/>
+    <View>
+      <Main/>
       <StatusBar style="auto" />
-    </Brackgorund>
+    </View>
   );
 }
 
