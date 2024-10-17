@@ -1,4 +1,7 @@
-import { View, Text, SafeAreaView, StyleSheet} from 'react-native'
+
+import { View, Text, StyleSheet} from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 
 export default function Background({children}) {
@@ -12,8 +15,9 @@ export default function Background({children}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#246AEB',
+    
+    
+
   },
 });
