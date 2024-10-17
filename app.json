@@ -1,36 +1,47 @@
 {
   "expo": {
-    "name": "intuative",
-    "slug": "intuative",
+    "name": "Intuactive",
+    "slug": "intuactive",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#000000"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.sizodevelops.Intuactive"
+      
     },
     "android": {
+      "icon": "./assets/adaptive-icon.png",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
-      "package": "com.sizodevelops.intuative"
+     
+      "package": "com.sizodevelops.Intuactive"
+      
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [
+      "@react-native-firebase/app"
+    ],
     "extra": {
       "eas": {
-        "projectId": "efcbc55e-ed30-45fc-94e3-911f454cea33"
+        "projectId": "1b8b843a-7bbd-4e3e-9872-ed309f398717"
       }
-    },
-    "plugins": [
-      "react-native-google-mobile-ads"
-    ]
+    }
   }
 }
