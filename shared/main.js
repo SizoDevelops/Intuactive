@@ -11,6 +11,9 @@ import { Colors } from './Colors';
 import Health from '../components/Health';
 import Stats from '../components/Stats';
 import { useFonts } from 'expo-font';
+import Learning from '../components/Learning';
+import VolunteerProfile from '../components/VolunteerProfile';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -27,28 +30,10 @@ const Tabs = () => {
     tabBarActiveTintColor: '#fff'
     
    }} tabBar={props => <MyTabBar {...props}/> }>
-  <Tab.Screen name="Home" component={Home} options={{
-            
-                    tabBarIcon: ({focused}) => {
-                      return <Ionicons name={focused ? 'ios-home' : "ios-home-outline"} size={22} color={Colors.TXT} />
-                    }
-               }}
-               />
-  <Tab.Screen name="Health" component={Health} options={{
-            
-            tabBarIcon: ({focused}) => {
-              return <Ionicons name={focused ? 'ios-home' : "ios-home-outline"} size={22} color={Colors.TXT} />
-            }
-       }}
-       />
+  <Tab.Screen name="Home" component={Home} />
+  <Tab.Screen name="Health" component={Health}  />
   
-  <Tab.Screen name="Stats" component={Stats} options={{
-            
-            tabBarIcon: ({focused}) => {
-              return <Ionicons name={focused ? 'ios-home' : "ios-home-outline"} size={22} color={Colors.TXT} />
-            }
-       }}
-       />
+  <Tab.Screen name="StatsStack" component={StatsStack} />
 
      
   </Tab.Navigator>
@@ -66,15 +51,50 @@ const HomeStack = () => {
                title:"Home Page"
        }}
        />
+  <Stack.Screen
+        name="Learning"
+        
+        component={Learning}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+          animation: 'slide_from_bottom',
+        }}
+      />
  
-    
  
         
   </Stack.Navigator>
   )
 }
 
+const StatsStack = () => {
 
+  return(
+    <Stack.Navigator initialRouteName='Stats'>
+    <Stack.Screen
+        name="Stats"
+        
+        component={Stats}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+     <Stack.Screen
+        name="VolunteerProfile"
+        
+        component={VolunteerProfile}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+    
+  </Stack.Navigator>
+  )
+  
+}
 
 
 // This is the main App where everything stems
@@ -86,8 +106,6 @@ const MainApp = () => {
 
     return (
             <NavigationContainer >
-              
-              <StatusBar backgroundColor={Colors.BG}/>
       
                 {
 
@@ -95,7 +113,6 @@ const MainApp = () => {
           
                 }
                
-             
             
            </NavigationContainer>
         );

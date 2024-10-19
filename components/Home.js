@@ -1,18 +1,38 @@
-import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, StatusBar } from 'react-native'
 
 import Background from './Background'
 import { Entypo, Feather, FontAwesome5, FontAwesome6, Ionicons } from '@expo/vector-icons'
 import { Colors } from '../shared/Colors'
 import HomeButton from '../shared/HomeButton'
 import * as Progress from 'react-native-progress';
+import MenuButton from '../shared/MenuButton'
+import { useCallback, useEffect, useState } from 'react'
+import { useFocusEffect } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
+import { setTabColor } from '../shared/TabColor'
+
 
 export default function Home() {
+  const dispatch = useDispatch()
+  useFocusEffect(
+    useCallback(() => {
+        StatusBar.setBarStyle('light-content'); 
+         StatusBar.setBackgroundColor(Colors.BG); 
+        StatusBar.setTranslucent(true);
+
+        dispatch(setTabColor({
+          background: Colors.BG,
+          icons: Colors.TXT
+        }))
+    }, []),
+
+
+  );
   return (
-    <Background>
+    <Background bg={Colors.BG}>
+      
       <View style={styles.container}>
-        <Pressable style={styles.menuholder}>
-          <Ionicons style={styles.icon} name="menu" size={40} color={Colors.TXT} />
-        </Pressable>
+        <MenuButton/>
         <View style={styles.greet}>
           <Text style={styles.text}>Welcome Back</Text>
           <Text style={[styles.text, {fontSize: 58, fontFamily: "Roboto-Black", marginTop: 20, marginBottom: 30}]}>Sizo Mhlongo</Text>
@@ -69,30 +89,17 @@ const styles = StyleSheet.create({
   container: {
     position: "relative"
   },
-  menuholder: {
-    position: "relative",
-    top: -40,
-    left: -44,
-    backgroundColor: "#D9D9D939",
-    width: 138,
-    height: 138,
-    borderRadius: 100
-  },
-
-  icon: {
-    position: "absolute",
-    right: 40,
-    bottom: 40,
-  },
+ 
   greeting:{
     position: "relative",
     paddingHorizontal: 40,
     flexDirection: 'row',
     justifyContent: "space-between",
-    marginTop: 20
+    top: 120
   },
   greet:{
     position: "relative",
     paddingHorizontal: 40,
+    top: 120
   }
 })

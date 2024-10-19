@@ -6,18 +6,19 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { SLIDER_WIDTH } from './functions';
 import { Colors } from './Colors';
 import { Fontisto, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
 
 
 
 
 function MyTabBar({ state, descriptors, navigation }) {
 
-
+  const colors = useSelector(state => state.TabColor)
  
   return (
   
     <>  
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: SLIDER_WIDTH, paddingLeft: 35, paddingRight: 35, backgroundColor: Colors.BG, height: 70,paddingTop: 5, paddingBottom: 8}}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: SLIDER_WIDTH, paddingLeft: 35, paddingRight: 35, backgroundColor: colors.background, height: 70,paddingTop: 5, paddingBottom: 8}}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const isFocused = state.index === index;
@@ -68,8 +69,8 @@ function MyTabBar({ state, descriptors, navigation }) {
             <View style={{alignItems: 'center'}}>
                 {
                     route.name === 'Home' ? (
-                      <FontAwesome name="send-o" size={30} color={Colors.TXT} />
-                    ) : route.name === 'Health' ? <Fontisto name="heartbeat-alt" size={40} color={Colors.TXT} />: <MaterialCommunityIcons name="bullseye-arrow" size={35} color={Colors.TXT} />
+                      <FontAwesome name="send-o" size={30} color={colors.icons} />
+                    ) : route.name === 'Health' ? <Fontisto name="heartbeat-alt" size={40} color={colors.icons} />: <MaterialCommunityIcons name="bullseye-arrow" size={35} color={colors.icons} />
                 }
             </View> 
             
