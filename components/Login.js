@@ -15,7 +15,7 @@ export default function Login(){
             <View style={styles.details}>
                 <Image style={styles.image} source={require("../assets/images/volunteer.png")}/>
 
-                <TextInput style={styles.textInput} placeholder={"+27728828282"}/>
+                <TextInput style={styles.textInput}/>
                 
             </View>
         </Background>
