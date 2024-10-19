@@ -7,7 +7,7 @@ import HomeButton from '../shared/HomeButton'
 import * as Progress from 'react-native-progress';
 import MenuButton from '../shared/MenuButton'
 import { useCallback, useEffect, useState } from 'react'
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { setTabColor } from '../shared/TabColor'
 
@@ -17,7 +17,7 @@ export default function Home() {
   useFocusEffect(
     useCallback(() => {
         StatusBar.setBarStyle('light-content'); 
-         StatusBar.setBackgroundColor(Colors.BG); 
+        StatusBar.setBackgroundColor(Colors.BG); 
         StatusBar.setTranslucent(true);
 
         dispatch(setTabColor({
@@ -28,6 +28,9 @@ export default function Home() {
 
 
   );
+
+  const navigation = useNavigation()
+
   return (
     <Background bg={Colors.BG}>
       
@@ -39,10 +42,12 @@ export default function Home() {
         </View>
 
         <View style={styles.greeting}>
-            <View>
+            <Pressable onPress={() => {
+              navigation.navigate("Login")
+            }}>
               <Text style={[styles.text]}>For emergency</Text>
               <HomeButton image_path={require("../assets/images/ambulance.png")} buttonText={"EmergGo"} buttonIcon={<Entypo  name="location" size={35} color={Colors.TXTALT} />}/>
-            </View>
+            </Pressable>
 
             <View >
               <Text style={[styles.text]}>For your health</Text>

@@ -13,6 +13,7 @@ import Stats from '../components/Stats';
 import { useFonts } from 'expo-font';
 import Learning from '../components/Learning';
 import VolunteerProfile from '../components/VolunteerProfile';
+import Login from '../components/Login';
 
 
 
@@ -59,6 +60,16 @@ const HomeStack = () => {
           presentation: "modal",
           headerShown: false,
           animation: 'slide_from_bottom',
+        }}
+      />
+
+<Stack.Screen
+        name="Login"
+        
+        component={Login}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
         }}
       />
  
