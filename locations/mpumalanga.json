@@ -1,0 +1,19 @@
+{
+    "piet retief": {
+        "doctors": [
+            {
+                "name": "",
+                "occupation": "",
+                "longitude": "",
+                "latitude": "",
+                "address": "",
+                "number" : ""
+            }
+        ],
+        "pharmacies": [
+            
+        ],
+
+        "postal code": 2380
+    }
+}
