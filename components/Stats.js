@@ -46,7 +46,7 @@ export default function Stats() {
               <Text style={[styles.Text, {color: Colors.TXTALT}]}>Learn</Text>
           </Pressable>
           <Pressable style={styles.btn} onPress={() => {
-            navigation.navigate("VolunteerProfile")
+            navigation.navigate("Documents")
           }}>
               <Text style={styles.Text}>Volunteer</Text>
           </Pressable>

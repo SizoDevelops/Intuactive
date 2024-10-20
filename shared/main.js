@@ -14,6 +14,7 @@ import { useFonts } from 'expo-font';
 import Learning from '../components/Learning';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Login from '../components/Login';
+import Documents from '../components/Documents';
 
 
 
@@ -67,6 +68,15 @@ const HomeStack = () => {
         name="Login"
         
         component={Login}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+<Stack.Screen
+        name="Documents"
+        
+        component={Documents}
         options={{
           headerShown: false,
           animation: 'slide_from_right',
