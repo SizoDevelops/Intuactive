@@ -1,10 +1,16 @@
 import { View, Text, Pressable, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { Entypo } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 
 export default function HomeButton({image_path, buttonText, buttonIcon}) {
+
+  const navigation = useNavigation()
+
   return (
-    <Pressable style={styles.buttons}>
+    <Pressable style={styles.buttons} onPress={() => {
+      navigation.navigate("Login")
+    }}>
     <Image style={styles.image} source={image_path}/>
     <View style={styles.btnIcon}>
         {buttonIcon}

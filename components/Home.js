@@ -17,7 +17,7 @@ export default function Home() {
   useFocusEffect(
     useCallback(() => {
         StatusBar.setBarStyle('light-content'); 
-        StatusBar.setBackgroundColor(Colors.BG); 
+         StatusBar.setBackgroundColor(Colors.BG); 
         StatusBar.setTranslucent(true);
 
         dispatch(setTabColor({
@@ -42,12 +42,10 @@ export default function Home() {
         </View>
 
         <View style={styles.greeting}>
-            <Pressable onPress={() => {
-              navigation.navigate("Login")
-            }}>
+            <View>
               <Text style={[styles.text]}>For emergency</Text>
               <HomeButton image_path={require("../assets/images/ambulance.png")} buttonText={"EmergGo"} buttonIcon={<Entypo  name="location" size={35} color={Colors.TXTALT} />}/>
-            </Pressable>
+            </View>
 
             <View >
               <Text style={[styles.text]}>For your health</Text>
