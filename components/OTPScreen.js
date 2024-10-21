@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native"
 
 
 
-export default function Login(){
+export default function OTPScreen(){
     const navigation = useNavigation()
     return(
         <Background color={Colors.BGALT}>
@@ -44,9 +44,7 @@ export default function Login(){
                     <Text style = {styles.textBelow}>To continue with registrations, press the button below...</Text>
                 </View>
                 <View>
-                    <Pressable style = {styles.Button} onPress={() => {
-                        navigation.navigate("LoginTwo")
-                    }}>
+                    <Pressable style = {styles.Button}>
                     <AntDesign name="arrowright" size={40} color={Colors.TXT} />
                     </Pressable>
                 </View>

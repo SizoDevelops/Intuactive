@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native"
 
 
 
-export default function Login(){
+export default function LoginTwo(){
     const navigation = useNavigation()
     return(
         <Background color={Colors.BGALT}>
@@ -25,34 +25,44 @@ export default function Login(){
                     <MaterialIcons name="menu" size={35} color={Colors.TXT} />
                 </Pressable>
                 </View>
-                  
+                <View style = {styles.IconCont}>
+                    <FontAwesome6 name="computer" size={70} color={Colors.TXT} />
+                </View>
             </View>
             
-
+                
             <View style={styles.details}>
                 <Text style = {styles.text}>Contact information </Text>
                 <View style = {styles.numberCont}>
-                    <Image style={styles.image} source={require("../assets/images/flag.png")}/>
+                    <Text style={styles.image}>Name</Text>
 
                     <TextInput style={styles.textInput } placeholder={'+27 123 456 6789'}/>
 
                 </View>
-                    <View style = {styles.numberCont}>
-                        <TextInput style = {[styles.textInput,{marginLeft: 0}]} placeholder={' e.g John@Doe'}/>
-                    </View>
+                <View style = {styles.numberCont}>
+                    <Text style={styles.image}>Surname</Text>
+
+                    <TextInput style={styles.textInput } placeholder={'+27 123 456 6789'}/>
+
+                </View>
+                <View style = {styles.numberCont}>
+                    <Text style={styles.image}>ID Number</Text>
+
+                    <TextInput style={styles.textInput } placeholder={'+27 123 456 6789'}/>
+
+                </View>
+                   
                 <View>
                     <Text style = {styles.textBelow}>To continue with registrations, press the button below...</Text>
                 </View>
                 <View>
                     <Pressable style = {styles.Button} onPress={() => {
-                        navigation.navigate("LoginTwo")
+                        navigation.navigate("OTPScreen")
                     }}>
                     <AntDesign name="arrowright" size={40} color={Colors.TXT} />
                     </Pressable>
                 </View>
-                <View style = {styles.IconCont}>
-                    <FontAwesome6 name="computer" size={70} color={Colors.TXT} />
-                </View>
+              
             </View>
             
         </Background>
@@ -71,10 +81,10 @@ const styles = StyleSheet.create({
         color: Colors.TXT
     },
     details: {
-        height: 440,
-        width: 323,
+        height: 510,
+        width: 343,
         margin: "auto",
-        top: -50,
+        top: -70,
         borderRadius: 25,
         backgroundColor: Colors.BGALT,
         elevation: 9
@@ -132,12 +142,11 @@ const styles = StyleSheet.create({
     IconCont:{
         height: 130,
         width: 140,
-        top : -580,
         backgroundColor: Colors.BG,
         marginHorizontal: 'auto',
         justifyContent: 'center',
-        alignItems: 'center'
-
+        alignItems: 'center',
+        top: 50
     },
           
     Back:{

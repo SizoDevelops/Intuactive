@@ -16,6 +16,8 @@ import VolunteerProfile from '../components/VolunteerProfile';
 import Login from '../components/Login';
 import Documents from '../components/Documents';
 import DistanceView from '../components/DistanceView';
+import OTPScreen from '../components/OTPScreen';
+import LoginTwo from '../components/LoginTwo';
 
 
 
@@ -94,7 +96,26 @@ const HomeStack = () => {
         }}
       />
  
- 
+ <Stack.Screen
+        name="LoginTwo"
+        
+        component={LoginTwo}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+ <Stack.Screen
+        name="OTPScreen"
+        
+        component={OTPScreen}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
         
   </Stack.Navigator>
   )
