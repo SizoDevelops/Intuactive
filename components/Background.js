@@ -10,6 +10,7 @@ export default function Background({children, color=Colors.BG}) {
     <SafeAreaView style={[styles.container, {backgroundColor: color}]}>
      
       <View>{children}</View>
+      
     </SafeAreaView>
   )
 }

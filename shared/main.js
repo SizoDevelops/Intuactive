@@ -15,6 +15,7 @@ import Learning from '../components/Learning';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Login from '../components/Login';
 import Documents from '../components/Documents';
+import DistanceView from '../components/DistanceView';
 
 
 
@@ -77,6 +78,16 @@ const HomeStack = () => {
         name="Documents"
         
         component={Documents}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+
+<Stack.Screen
+        name="DistanceView"
+        
+        component={DistanceView}
         options={{
           headerShown: false,
           animation: 'slide_from_right',
