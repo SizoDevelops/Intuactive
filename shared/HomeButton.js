@@ -24,8 +24,8 @@ export default function HomeButton({image_path, buttonText, buttonIcon}) {
 const styles = StyleSheet.create({
     buttons:{
         backgroundColor: "#fff",
-        width: 130,
-        height: 117,
+        width: 120,
+        height: 107,
         borderRadius: 15,
         marginTop: 60,
         alignItems: "center",
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     
       btnText:{
         top: 10,
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: "900"
       }
 })
