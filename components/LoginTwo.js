@@ -20,7 +20,7 @@ export default function LoginTwo(){
                 }}>
                     <FontAwesome6 style = {styles.BackIcon} name="arrow-right-to-bracket" size={30} color={Colors.TXT} />
                 </Pressable>
-                <Text style = {styles.SendCode}>Sign up</Text>
+                <Text style = {styles.SendCode}>Details</Text>
                 <Pressable style={styles.menu}>
                     <MaterialIcons name="menu" size={35} color={Colors.TXT} />
                 </Pressable>
