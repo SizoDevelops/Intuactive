@@ -35,7 +35,7 @@ export default function Stats() {
           <Text style={[styles.Text, {fontSize: 38, fontFamily: "Roboto-Black", marginTop: 20, marginBottom: 30}]}>Sizo Mhlongo</Text>
         </View>
         <View style={styles.textHolder}>
-          <Text style={[styles.Text, {fontSize: normalize(19), lineHeight: 35}]}>
+          <Text style={[styles.Text, {fontSize: normalize(16), lineHeight: 35}]}>
             Empowering you to take control of your well-being by providing easy access to health education and personalized insights.
           </Text>
         </View>
@@ -59,7 +59,7 @@ export default function Stats() {
         <View>
           <View style={styles.learn}>
           <MaterialCommunityIcons name="brain" size={40} color={Colors.TXTALT} />
-          <Text style={{fontSize: normalize(20) }}>Mental Health</Text>
+          <Text style={{fontSize: normalize(16) }}>Mental Health</Text>
           <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]} onPress={() => {
             navigation.navigate("DistanceView")
           }}>
@@ -69,7 +69,7 @@ export default function Stats() {
 
           <View style={styles.learn}>
           <FontAwesome5 name="heartbeat" size={40} color={Colors.TXTALT} />
-          <Text style={{fontSize: normalize(20) }}>Mental Health</Text>
+          <Text style={{fontSize: normalize(16) }}>Cardivascular Health</Text>
           <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]}>
               <Text style={styles.Text}>Learn</Text>
           </Pressable>
@@ -87,10 +87,11 @@ export default function Stats() {
 const styles = StyleSheet.create({
     Text: {
       color: "#fff",
-      fontSize: normalize(20),
+      fontSize: normalize(14),
       
     },
     container: {
+      
       backgroundColor: Colors.BG,
       height: 337,
       borderBottomLeftRadius: 25,
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     btn: {
       borderWidth: 2,
       width: 128,
-      height: 50,
+      height: 45,
       alignItems: "center",
       justifyContent: "center",
       borderRadius: 50,
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     },
     buttons: {
       paddingHorizontal: 20,
-      marginTop: 20,
+      marginTop: 10,
       flexDirection: "row",
       gap: 30
     },

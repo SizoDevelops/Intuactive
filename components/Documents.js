@@ -168,7 +168,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 9,
-        backgroundColor: Colors.BG
+        backgroundColor: Colors.BG,
+        paddingHorizontal: 10
         
       },
       RightButton:{

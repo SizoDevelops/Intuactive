@@ -76,15 +76,7 @@ const HomeStack = () => {
           animation: 'slide_from_right',
         }}
       />
-<Stack.Screen
-        name="Documents"
-        
-        component={Documents}
-        options={{
-          headerShown: false,
-          animation: 'slide_from_right',
-        }}
-      />
+
 
 <Stack.Screen
         name="DistanceView"
@@ -143,7 +135,15 @@ const StatsStack = () => {
           animation: 'slide_from_right',
         }}
       />
-    
+    <Stack.Screen
+        name="Documents"
+        
+        component={Documents}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
   </Stack.Navigator>
   )
   
