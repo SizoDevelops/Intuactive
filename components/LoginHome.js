@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { Pressable, StatusBar, StyleSheet, Text, View } from "react-native";
 import Background from "./Background";
 import { Colors } from "../shared/Colors";
 import { useFocusEffect } from "@react-navigation/native";
@@ -26,34 +26,35 @@ export default function LoginHome(){
     return (
         <Background color= {Colors.BGALT}>
             <View style= {styles.container}>
-            <View style={styles.smallblue}>
-            <FontAwesome6 name="computer" size={70} color={Colors.TXT} />
+            
+            
+                <View style={styles.smallblue}>
+                    <FontAwesome6 name="computer" size={70} color={Colors.TXT} />
+
+                </View>
+                <View style={styles.bigblue}>
+                    <FontAwesome6 name="computer" size={70} color={Colors.TXT} />
+
+                </View>
 
             </View>
-            <View style={styles.bigblue}>
-            <FontAwesome6 name="computer" size={70} color={Colors.TXT} />
-
-            </View>
-
-            </View>
-            <Text style={styles.Text}>
+            <Text style={styles.text}>
               Sizo Mhlongo  
             </Text>
-            <View style={styles.button}>
-                <Text style={styles.Textbutton}>
+            <Pressable style={styles.button}>
+                <Text style={styles.textButton}>
                     Log in
                 </Text>
-            </View>
-            <Text styles={styles.Text}>
+            </Pressable>
+            <Text style={styles.textLogin}>
                 Log into another account
             </Text>
-            <View style={styles.button}>
-                <Text styles= {styles.Textbutton}>
-                   Create new account
+            <Pressable style={styles.button}>
+                <Text style={styles.textButton}>
+                    Create new account
                 </Text>
-
-            </View>
-
+            </Pressable>
+            
         </Background>
     )
 }
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         paddingTop: 60,
-        gap: 35, 
+        gap: 15, 
     },
     smallblue: {
         width: 140,
@@ -70,7 +71,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.BG,
         borderRadius: 25,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        
 
     },
     bigblue: {
@@ -79,15 +81,19 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.BG,
         borderRadius: 25,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginVertical: 20,
 
     },
-    Text: {
-        textAlign:  "center",
-        fontWeight: "600",
-        fontSize: normalize(40),
+    text: {
+        marginHorizontal:  "auto",
+        fontWeight: "900",
+        fontSize: normalize(20),
         marginVertical: 20,
-        marginVertical: 40,
+        margin: "auto",
+        marginTop: 10,
+        
+
     },
 
     button: {
@@ -96,15 +102,30 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.BG,
         borderRadius: 25,
         marginHorizontal: "auto",
+        marginVertical: 10,
     },
-    Textbutton: {
+    textButton: {
         textAlign: "center",
         textWeight: "200",
         color: Colors.TXT,
         fontSize: normalize(20),
         marginVertical: 10,
+        margin: "auto",
+        marginHorizontal: 20
         
     },
+
+    textLogin: {
+        textAlign: "center",
+        fontWeight: "10",
+        fontSize: normalize(20),
+        color: Colors.BG,
+        margin: "auto",
+        marginVertical: 20,
+        marginHorizontal:  "auto",
+    },
+
+    
     
     
 
