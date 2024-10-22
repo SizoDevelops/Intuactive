@@ -41,7 +41,7 @@ export default function Stats() {
 
         <View style={styles.buttons}>
           <Pressable style={[styles.btn, {backgroundColor: Colors.BGALT}]} onPress={() => {
-            navigation.navigate("Learning")
+            navigation.navigate("LoginHome")
           }}>
               <Text style={[styles.Text, {color: Colors.TXTALT}]}>Learn</Text>
           </Pressable>

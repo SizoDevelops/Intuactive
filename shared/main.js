@@ -15,6 +15,7 @@ import Learning from '../components/Learning';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Login from '../components/Login';
 import Documents from '../components/Documents';
+import LoginHome from '../components/LoginHome';
 
 
 
@@ -82,7 +83,15 @@ const HomeStack = () => {
           animation: 'slide_from_right',
         }}
       />
- 
+ <Stack.Screen
+        name="LoginHome"
+        
+        component={LoginHome}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
  
         
   </Stack.Navigator>
