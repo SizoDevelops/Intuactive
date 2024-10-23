@@ -19,11 +19,13 @@ import { Colors } from "../shared/Colors";
 import HomeButton from "../shared/HomeButton";
 import * as Progress from "react-native-progress";
 import MenuButton from "../shared/MenuButton";
-import { useCallback, useEffect, useState } from "react";
+
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { useDispatch } from "react-redux";
+
 import { setTabColor } from "../shared/TabColor";
 import { normalize } from "../shared/functions";
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();

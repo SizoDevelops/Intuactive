@@ -6,7 +6,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { setTabColor } from '../shared/TabColor';
 import MenuButton from '../shared/MenuButton';
-import { BarChart, LineChart } from 'react-native-gifted-charts';
+import {  LineChart } from 'react-native-gifted-charts';
 
 export default function Health() {
   const dispatch = useDispatch()
@@ -24,19 +24,33 @@ export default function Health() {
   );
 
   const lineData = [
- 
-    {value: 54, label: "14 Oct"},
-    {value: 58, label: "14 Oct"},
-    {value: 46, label: "14 Oct"},
-    {value: 48, label: "14 Oct"},
-    {value: 10, label: "14 Oct"},
-    {value: 18, label: "14 Oct"},
-    {value: 30, label: "14 Oct"},
-    {value: 68, label: "14 Oct"},
-    {value: 54, label: "14 Oct"},
-    {value: 58, label: "14 Oct"},
-    {value: 46, label: "14 Oct"},
+    {value: 60, dataPointText: '0'},
+    {value: 20, dataPointText: '10'},
+    {value: 40, dataPointText: '8'},
+    {value: 68, dataPointText: '58'},
+    {value: 10, dataPointText: '56'},
+    {value: 70, dataPointText: '78'},
+    {value: 74, dataPointText: '74'},
+    {value: 58, dataPointText: '98'},
+    {value: 10, dataPointText: '56'},
+    {value: 70, dataPointText: '78'},
+    {value: 74, dataPointText: '74'},
+    {value: 58, dataPointText: '98'},
+  ];
 
+  const lineData2 = [
+    {value: 0, dataPointText: '0'},
+    {value: 30, dataPointText: '20'},
+    {value: 48, dataPointText: '18'},
+    {value: 10, dataPointText: '40'},
+    {value: 16, dataPointText: '36'},
+    {value: 10, dataPointText: '56'},
+    {value: 70, dataPointText: '78'},
+    {value: 74, dataPointText: '74'},
+    {value: 58, dataPointText: '98'},
+    {value: 60, dataPointText: '60'},
+    {value: 44, dataPointText: '54'},
+    {value: 25, dataPointText: '85'},
   ];
 
 
@@ -54,28 +68,23 @@ export default function Health() {
       </View>
 
       <View style={styles.Graph}>
-      <BarChart
-        noOfSections={3}
-        barBorderRadius={4}
-        frontColor={Colors.BG}
-        curved
-        data={lineData}
-        overflowTop={1}
-        overflowBottom={10}
-        height={150}
-        spacing={44}
-        initialSpacing={0}
-        color1="skyblue"
-        color2="orange"
-        xAxisColor={"transparent"}
-        yAxisColor={"transparent"}
-        hideYAxisText
-        hideRules
-        xAxisLabelsVerticalShift={30}
-        hideDataPoints
-        startOpacity={0}
-        endOpacity={0}
-        textFontSize={13}
+      <LineChart
+          data={lineData}
+          data2={lineData2}
+          height={250}
+          showVerticalLines = {false}
+          spacing={44}
+          initialSpacing={0}
+          color1="skyblue"
+          color2="orange"
+          textColor1="green"
+          hideDataPoints
+          hideRules
+          
+          textShiftY={-2}
+          textShiftX={-5}
+          textFontSize={13}
+          curved
       />
       </View>
 

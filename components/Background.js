@@ -9,14 +9,15 @@ export default function Background({children, color=Colors.BG}) {
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: color}]}>
      
-      <View>{children}</View>
+      <View style={styles.container}>{children}</View>
+      
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
 
   },
 });

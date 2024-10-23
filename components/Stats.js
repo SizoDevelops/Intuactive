@@ -7,6 +7,7 @@ import MenuButton from '../shared/MenuButton'
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { setTabColor } from '../shared/TabColor'
+import { normalize } from '../shared/functions'
 
 
 export default function Stats() {
@@ -34,7 +35,7 @@ export default function Stats() {
           <Text style={[styles.Text, {fontSize: 38, fontFamily: "Roboto-Black", marginTop: 20, marginBottom: 30}]}>Sizo Mhlongo</Text>
         </View>
         <View style={styles.textHolder}>
-          <Text style={[styles.Text, {fontSize: 19, lineHeight: 35}]}>
+          <Text style={[styles.Text, {fontSize: normalize(16), lineHeight: 35}]}>
             Empowering you to take control of your well-being by providing easy access to health education and personalized insights.
           </Text>
         </View>
@@ -53,27 +54,29 @@ export default function Stats() {
         </View>
       </View>
       <View style={styles.main}>
-        <Text style={{fontSize: 20, fontWeight: "900", marginTop: 20 }}>Learn about your health</Text>
+        <Text style={{fontSize: normalize(20), fontWeight: "900", marginTop: 20 }}>Learn about your health</Text>
 
         <View>
           <View style={styles.learn}>
           <MaterialCommunityIcons name="brain" size={40} color={Colors.TXTALT} />
-          <Text style={{fontSize: 20 }}>Mental Health</Text>
-          <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]}>
+          <Text style={{fontSize: normalize(16) }}>Mental Health</Text>
+          <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]} onPress={() => {
+            navigation.navigate("DistanceView")
+          }}>
               <Text style={styles.Text}>Learn</Text>
           </Pressable>
           </View>
 
           <View style={styles.learn}>
           <FontAwesome5 name="heartbeat" size={40} color={Colors.TXTALT} />
-          <Text style={{fontSize: 20 }}>Mental Health</Text>
+          <Text style={{fontSize: normalize(16) }}>Cardivascular Health</Text>
           <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]}>
               <Text style={styles.Text}>Learn</Text>
           </Pressable>
           </View>
         </View>
 
-        <Text style={{fontSize: 20, fontWeight: "900", marginTop: 30 }}>Unlock a new dimension of learning</Text>
+        <Text style={{fontSize: normalize(20), fontWeight: "900", marginTop: 30 }}>Unlock a new dimension of learning</Text>
 
 
       </View>
@@ -84,10 +87,11 @@ export default function Stats() {
 const styles = StyleSheet.create({
     Text: {
       color: "#fff",
-      fontSize: 20,
+      fontSize: normalize(14),
       
     },
     container: {
+      
       backgroundColor: Colors.BG,
       height: 337,
       borderBottomLeftRadius: 25,
@@ -110,7 +114,7 @@ const styles = StyleSheet.create({
     btn: {
       borderWidth: 2,
       width: 128,
-      height: 50,
+      height: 45,
       alignItems: "center",
       justifyContent: "center",
       borderRadius: 50,
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
     },
     buttons: {
       paddingHorizontal: 20,
-      marginTop: 20,
+      marginTop: 10,
       flexDirection: "row",
       gap: 30
     },
