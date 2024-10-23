@@ -34,7 +34,7 @@ export default function ViewMap() {
       </View>
       <View style ={styles.Container}>
           <View style={styles.Row}>
-
+                
                 <MaterialIcons name="message" size={24} color="black" />
                 <Ionicons name="call-outline" size={24} color="black" />
             <View style={styles.Colmn}>
@@ -73,6 +73,14 @@ const styles = StyleSheet.create({
         borderRadius: 25,
       
 
+      },
+      Row:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+
+      },
+      Colmn:{
+        flexDirection: 'column'
       }
     
 })
