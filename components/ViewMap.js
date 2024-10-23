@@ -5,7 +5,8 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { setTabColor } from '../shared/TabColor'
 import { Colors } from '../shared/Colors'
-
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 export default function ViewMap() {
   const navigation = useNavigation()
     const dispatch = useDispatch()
@@ -24,18 +25,28 @@ export default function ViewMap() {
   return (
     <Background>
       <View style={styles.Cont}>
-        <Text>
-          Sizo Mhlongo
-        </Text>
-        <Text>
-          07:00
-        </Text>
+          <Text>
+            Sizo Mhlongo
+          </Text>
+          <Text>
+            07:00
+          </Text>
       </View>
       <View style ={styles.Container}>
-        <View style={styles.Row}>
-          
+          <View style={styles.Row}>
 
-        </View>
+                <MaterialIcons name="message" size={24} color="black" />
+                <Ionicons name="call-outline" size={24} color="black" />
+            <View style={styles.Colmn}>
+                <Text style={styles.Town}>
+                  Braamfontein
+                </Text>
+                <Text style={styles.City}>
+                  Johannesburg
+                </Text>
+            </View>
+
+          </View>
         
       </View>
       </Background>
