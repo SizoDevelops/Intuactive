@@ -7,6 +7,7 @@ export default ({ config }) => ({
   slug: 'intuactive',
   name: 'Intuactive',
   android: {
+    package: "com.sizodevelops.Intuactive",
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#FFFFFF',
