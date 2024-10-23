@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { setTabColor } from '../shared/TabColor'
 import { Colors } from '../shared/Colors'
 
-export default function MapView() {
+export default function ViewMap() {
   const navigation = useNavigation()
     const dispatch = useDispatch()
   useFocusEffect(
@@ -23,22 +23,44 @@ export default function MapView() {
   );
   return (
     <Background>
+      <View style={styles.Cont}>
+        <Text>
+          Sizo Mhlongo
+        </Text>
+        <Text>
+          07:00
+        </Text>
+      </View>
       <View style ={styles.Container}>
-        <Text>Map</Text>
+        <View style={styles.Row}>
+          
+
+        </View>
+        
       </View>
       </Background>
   )
 }
 
 const styles = StyleSheet.create({
-      Container:{
+  Cont:{
+    backgroundColor: Colors.TXT,
+    height:63,
+    width:271,
+    borderRadius: 25,
+    marginHorizontal: 'auto',
+    justifyContent: 'center',
+    paddingLeft: 20,
+    marginTop: 20
+  },    
+  Container:{
         backgroundColor: Colors.TXT,
         width: 393,
         height:216,
-        marginTop: 570,
+        marginTop: 550,
         borderWidth: 1,
         borderRadius: 25,
-        marginRight:20
+      
 
       }
     
