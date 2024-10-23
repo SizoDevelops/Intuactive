@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable} from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, ScrollView} from 'react-native'
 import React from 'react'
 import Background from './Background'
 import { Colors } from '../shared/Colors'
@@ -12,7 +12,8 @@ export default function Learning() {
         <Text style={styles.text}>
             Edu Care
         </Text>
-        <View style={styles.menu}>
+        
+        <ScrollView style={styles.menu}>
         <Text style={[styles.text, {color: Colors.TXTALT, marginTop: 20}]}>
             Select Lesson
         </Text>
@@ -101,7 +102,8 @@ export default function Learning() {
 
         </View>
 
-        </View>
+        </ScrollView>
+        
     </Background>
   )
 }
@@ -119,7 +121,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.BGALT,
         bottom: -30,
         borderTopLeftRadius: 25,
-        borderTopEndRadius: 25
+        borderTopEndRadius: 25,
+        
     },
     images:{
         flexDirection: "row",
@@ -163,6 +166,6 @@ const styles = StyleSheet.create({
       butt:{
         justifyContent: "center",
         alignItems: "center",
-        gap: 5
+        gap: 10
       }
 })

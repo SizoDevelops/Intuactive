@@ -29,7 +29,13 @@
         "backgroundColor": "#000000"
       },
      
-      "package": "com.sizodevelops.Intuactive"
+      "package": "com.sizodevelops.Intuactive",
+      "config":{
+        "googleMaps": {
+          "apiKey": ""
+        }
+      }
+      
       
     },
     "web": {

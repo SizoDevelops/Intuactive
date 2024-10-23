@@ -47,7 +47,10 @@
     "react-native-gesture-handler": "~2.16.1",
     "react-native-gifted-charts": "^1.4.44",
     "react-native-maps": "^1.18.2",
+<<<<<<< HEAD
     "react-native-maps-directions": "^1.9.0",
+=======
+>>>>>>> 4de7cf1ed2e3a0d29e0f5d5fc9a999f91d9ed8f5
     "react-native-pager-view": "^6.4.1",
     "react-native-progress": "^5.0.1",
     "react-native-reanimated": "~3.10.1",
