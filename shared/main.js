@@ -1,24 +1,28 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
-import { SafeAreaView, ActivityIndicator, StatusBar, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import * as NavigationBar from "expo-navigation-bar";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import Home from "../components/Home";
-import MyTabBar from "./nav";
-import { Colors } from "./Colors";
-import Health from "../components/Health";
-import Stats from "../components/Stats";
-import { useFonts } from "expo-font";
-import Learning from "../components/Learning";
-import VolunteerProfile from "../components/VolunteerProfile";
-import Login from "../components/Login";
-import Documents from "../components/Documents";
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import {SafeAreaView, ActivityIndicator, StatusBar, Text} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import * as NavigationBar from 'expo-navigation-bar';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import Home from '../components/Home';
+import MyTabBar from './nav';
+import { Colors } from './Colors';
+import Health from '../components/Health';
+import Stats from '../components/Stats';
+import { useFonts } from 'expo-font';
+import Learning from '../components/Learning';
+import VolunteerProfile from '../components/VolunteerProfile';
+import Login from '../components/Login';
+import Documents from '../components/Documents';
+import LoginHome from '../components/LoginHome';
+import Medicalrecords from '../components/Medicalrecords';
 import DistanceView from "../components/DistanceView";
 import OTPScreen from "../components/OTPScreen";
 import LoginTwo from "../components/LoginTwo";
 import ViewMap from "../components/ViewMap";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -85,6 +89,25 @@ const HomeStack = () => {
         options={{
           headerShown: false,
           animation: "slide_from_right",
+        }}
+      />
+
+ <Stack.Screen
+        name="LoginHome"
+        
+        component={LoginHome}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+  <Stack.Screen
+        name="Medicalrecords"
+        
+        component={Medicalrecords}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
         }}
       />
 
@@ -161,3 +184,4 @@ const MainApp = () => {
 };
 
 export default MainApp;
+  
