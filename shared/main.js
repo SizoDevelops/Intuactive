@@ -18,6 +18,7 @@ import Documents from '../components/Documents';
 import DistanceView from '../components/DistanceView';
 import OTPScreen from '../components/OTPScreen';
 import LoginTwo from '../components/LoginTwo';
+import MapView from '../components/MapView';
 
 
 
@@ -108,7 +109,17 @@ const HomeStack = () => {
           animation: 'slide_from_right',
         }}
       />
+  <Stack.Screen
+        name="MapView"
         
+        component={MapView}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+       
   </Stack.Navigator>
   )
 }
