@@ -68,7 +68,7 @@ export default function Home() {
         <View style={styles.greeting}>
           <Pressable
             onPress={() => {
-              navigation.navigate("Login");
+              navigation.navigate("Medicalrecords");
             }}
           >
             <Text style={[styles.text]}>For emergency</Text>

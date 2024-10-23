@@ -16,6 +16,7 @@ import VolunteerProfile from '../components/VolunteerProfile';
 import Login from '../components/Login';
 import Documents from '../components/Documents';
 import LoginHome from '../components/LoginHome';
+import Medicalrecords from '../components/Medicalrecords';
 
 
 
@@ -87,6 +88,15 @@ const HomeStack = () => {
         name="LoginHome"
         
         component={LoginHome}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+  <Stack.Screen
+        name="Medicalrecords"
+        
+        component={Medicalrecords}
         options={{
           headerShown: false,
           animation: 'slide_from_right',
