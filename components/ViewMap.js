@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Image, StatusBar, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Background from './Background';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -12,6 +12,10 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
 import Config from '../config';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+
+
+
 
 export default function ViewMap() {
   const [regions, setRegion] = useState({
@@ -201,7 +205,15 @@ export default function ViewMap() {
         <Ionicons name="locate" size={30} color="white" />
       </TouchableOpacity>
       <View style={styles.Container}>
-        <View style={styles.Row}></View>
+        <View style={styles.Row}>
+          <Image source={require('../assets/images/DriverProfile.png')}/>
+          <View style={styles.Colmn}>
+              <Text style={styles.text}>Thabo</Text>
+              <Text style={styles.text}>Motloung</Text>
+          </View>
+          <FontAwesome6 name="message" size={24} color={Colors.TXTALT} />
+          <Ionicons name="call-outline" size={24} color={Colors.TXTALT} />
+        </View>
       </View>
     </Background>
   );
@@ -243,4 +255,19 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 5,
   },
+  Row:{
+    flexDirection: 'row',
+    marginTop: 15,
+    gap: 20
+  },
+  text:{
+    fontSize: 14,
+    fontWeight: '500'
+  },
+  Colmn:{
+    gap: 10,
+  }
+  
+  
+  
 });
