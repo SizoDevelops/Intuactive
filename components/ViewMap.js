@@ -274,6 +274,6 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.BG,
         padding: 15,
         borderRadius: 50,
-        elevation: 5, // Adds shadow on Android
+        elevation: 5, 
       },
 })
