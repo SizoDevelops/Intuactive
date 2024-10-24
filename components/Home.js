@@ -104,7 +104,7 @@ export default function Home() {
             style={[
               styles.text,
               {
-                fontSize: 16,
+                fontSize: normalize(16),
                 fontWeight: "900",
                 marginTop: 20,
                 marginBottom: 30,
@@ -152,7 +152,7 @@ export default function Home() {
                   styles.text,
                   {
                     marginVertical: 20,
-                    fontSize: 16,
+                    fontSize: normalize(16),
                     fontWeight: "900",
                     textAlign: "left",
                   },
@@ -160,7 +160,7 @@ export default function Home() {
               >
                 Previous Date
               </Text>
-              <Text style={[styles.text, { fontSize: 12 }]}>
+              <Text style={[styles.text, { fontSize: normalize(14) }]}>
                 10 October 2024
               </Text>
             </View>
@@ -171,7 +171,7 @@ export default function Home() {
                   styles.text,
                   {
                     marginVertical: 20,
-                    fontSize: 16,
+                    fontSize: normalize(16) ,
                     fontWeight: "900",
                     textAlign: "left",
                   },
@@ -179,7 +179,7 @@ export default function Home() {
               >
                 Next Date
               </Text>
-              <Text style={[styles.text, { fontSize: 12 }]}>
+              <Text style={[styles.text, { fontSize: normalize(14) }]}>
                 10 November 2024
               </Text>
             </View>
@@ -193,7 +193,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   text: {
     color: "#fff",
-    fontSize: 12,
+    fontSize: normalize(17) ,
   },
   container: {
     position: "relative",

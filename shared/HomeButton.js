@@ -2,6 +2,7 @@ import { View, Text, Pressable, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
+import { normalize } from './functions'
 
 export default function HomeButton({image_path, buttonText, buttonIcon}) {
 
@@ -24,8 +25,8 @@ export default function HomeButton({image_path, buttonText, buttonIcon}) {
 const styles = StyleSheet.create({
     buttons:{
         backgroundColor: "#fff",
-        width: 120,
-        height: 107,
+        width: normalize(140) ,
+        height: normalize(104) ,
         borderRadius: 15,
         marginTop: 60,
         alignItems: "center",
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     
       btnText:{
         top: 10,
-        fontSize: 16,
+        fontSize: normalize(14) ,
         fontWeight: "900"
       }
 })

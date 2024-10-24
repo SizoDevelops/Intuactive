@@ -32,7 +32,7 @@ export default function Stats() {
       <MenuButton/>
         <View style={styles.header}>
           <Text style={styles.Text}>Good Morning</Text>
-          <Text style={[styles.Text, {fontSize: 38, fontFamily: "Roboto-Black", marginTop: 20, marginBottom: 30}]}>Sizo Mhlongo</Text>
+          <Text style={[styles.Text, {fontSize: normalize(40) , fontFamily: "Roboto-Black", marginTop: 20, marginBottom: 30}]}>Sizo Mhlongo</Text>
         </View>
         <View style={styles.textHolder}>
           <Text style={[styles.Text, {fontSize: normalize(16), lineHeight: 35}]}>
@@ -54,7 +54,7 @@ export default function Stats() {
         </View>
       </View>
       <View style={styles.main}>
-        <Text style={{fontSize: normalize(20), fontWeight: "900", marginTop: 20 }}>Learn about your health</Text>
+        <Text style={{fontSize: normalize(18), fontWeight: "900", marginTop: 20 }}>Learn about your health</Text>
 
         <View>
           <View style={styles.learn}>
