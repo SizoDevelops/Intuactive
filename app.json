@@ -32,7 +32,7 @@
       "package": "com.sizodevelops.Intuactive",
       "config":{
         "googleMaps": {
-          "apiKey": ""
+          "apiKey": "AIzaSyB-w_lAOg3rTPj8b_TvFQM_QtgEn_xEoMM"
         }
       }
       
@@ -42,7 +42,20 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-     
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Intuactive to use your location."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow Intuactive to access your photos.",
+          "savePhotosPermission": "Allow Intuactive to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
     ],
     "extra": {
       "eas": {

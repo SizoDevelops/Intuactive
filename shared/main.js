@@ -133,7 +133,7 @@ const HomeStack = () => {
         name="ViewMap"
         component={ViewMap}
         options={{
-          presentation: "modal",
+        
           headerShown: false,
           animation: "slide_from_right",
         }}

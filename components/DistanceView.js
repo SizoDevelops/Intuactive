@@ -8,7 +8,7 @@ import { setTabColor } from "../shared/TabColor";
 import { normalize, SLIDER_HEIGHT, SLIDER_WIDTH } from "../shared/functions";
 import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
 import { Image } from "react-native";
-import ViewMap from "./ViewMap";
+
 
 
 export default function DistanceView() {
@@ -112,12 +112,12 @@ export default function DistanceView() {
           </View>
         </View>
 
-        <Pressable style={styles.btn}>
+        <Pressable style={styles.btn} onPress={() => {
+              navigation.navigate("ViewMap");
+            }}>
           <Text
             style={styles.btnText}
-            onPress={() => {
-              navigation.navigate(ViewMap);
-            }}
+            
           >
             Map View
           </Text>
