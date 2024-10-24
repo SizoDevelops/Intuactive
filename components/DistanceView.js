@@ -8,7 +8,7 @@ import { setTabColor } from "../shared/TabColor";
 import { normalize, SLIDER_HEIGHT, SLIDER_WIDTH } from "../shared/functions";
 import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
 import { Image } from "react-native";
-
+import * as Progress from "react-native-progress";
 
 
 export default function DistanceView() {
@@ -78,6 +78,18 @@ export default function DistanceView() {
             >
               09:30
             </Text>
+
+            <View>
+              <Progress.Bar
+                progress={0.3}
+                width={null}
+                unfilledColor={"#fff"}
+                height={10}
+                borderWidth={0}
+                borderRadius={25}
+                color={"#03a4ff"}
+              />
+            </View>
           </View>
           <Text style={styles.text}>Braamfontein</Text>
         </View>
@@ -102,7 +114,7 @@ export default function DistanceView() {
             <Ionicons name="location-outline" size={30} color={Colors.BG} />
             <Image
               style={styles.image}
-              source={require("../assets/images/ambulance.png")}
+              source={require("../assets/images/downuser.png")}
             />
 
             <View style={styles.textCont}>
@@ -153,7 +165,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   text: {
-    fontSize: normalize(18),
+    fontSize: normalize(16),
     fontWeight: "800",
     margin: 30,
   },
@@ -163,8 +175,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   image: {
-    width: 76,
-    height: 48,
+    width: 66,
+    height: 38,
     marginLeft: 20,
   },
 
@@ -200,12 +212,12 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   btnText: {
-    fontSize: normalize(22),
+    fontSize: normalize(16),
     color: Colors.TXT,
   },
   header: {
     marginHorizontal: "auto",
-    marginTop: 30,
+    marginTop: 20,
     alignItems: "center",
   },
 });

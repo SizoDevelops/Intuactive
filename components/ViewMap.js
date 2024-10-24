@@ -100,7 +100,7 @@ export default function ViewMap() {
       });
       
       setClosestCar(closest);
-      calculateETA(closest);
+   
     }
   }, [userLocation, carPositions]);
 
@@ -116,12 +116,7 @@ export default function ViewMap() {
     return R * c; // Distance in km
   };
 
-  const calculateETA = (car) => {
-    const distance = calculateDistance(userLocation, car);
-    const timeInHours = distance / (car.speed / 60); // Speed is in km/h
-    const minutes = Math.round(timeInHours * 60);
-   
-  };
+
 
   // Move the closest car towards the user's location
   useEffect(() => {
@@ -219,7 +214,7 @@ const styles = StyleSheet.create({
     width: 271,
     borderRadius: 25,
     marginHorizontal: 'auto',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     paddingLeft: 20,
     marginTop: 20,
     elevation: 10,
