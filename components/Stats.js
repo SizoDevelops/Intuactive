@@ -70,11 +70,13 @@ export default function Stats() {
           <View style={styles.learn}>
           <FontAwesome5 name="heartbeat" size={40} color={Colors.TXTALT} />
           <Text style={{fontSize: normalize(16) }}>Cardivascular Health</Text>
-          <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]}>
+          <Pressable style={[styles.btn, {backgroundColor: Colors.BG}]} onPress={() => {
+            navigation.navigate("MedicalRecords")
+          }}>
               <Text style={styles.Text}>Learn</Text>
           </Pressable>
           </View>
-        </View>
+        </View> 
 
         <Text style={{fontSize: normalize(20), fontWeight: "900", marginTop: 30 }}>Unlock a new dimension of learning</Text>
 

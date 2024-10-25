@@ -102,7 +102,7 @@ const HomeStack = () => {
         }}
       />
   <Stack.Screen
-        name="Medicalrecords"
+        name="MedicalRecords"
         
         component={Medicalrecords}
         options={{
