@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Background from './Background';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -12,6 +12,12 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
 import Config from '../config';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { rotate } from 'react-native-redash';
+
+
+
+
 
 export default function ViewMap() {
   const [regions, setRegion] = useState({
@@ -201,7 +207,22 @@ export default function ViewMap() {
         <Ionicons name="locate" size={30} color="white" />
       </TouchableOpacity>
       <View style={styles.Container}>
-        <View style={styles.Row}></View>
+        <View style={styles.Row}>
+          <View style={styles.Biomerics}>
+            <Image source={require('../assets/images/DriverProfile.png')}/>
+            <View style={styles.Colmn}>
+                <Text style={styles.text}>Thabo</Text>
+                <Text style={styles.text}>Motloung</Text>
+            </View>
+          </View>
+          <Pressable style={styles.Contact}>  
+            <FontAwesome6 name="message" size={24} color={Colors.TXTALT} />
+            <Ionicons name="call-outline" size={24} color={Colors.TXTALT} style={styles.transform} />
+          </Pressable>
+        </View>
+        <View style={styles.button}>
+          <Text style={styles.textDriver}>Driver Profile</Text>
+        </View>
       </View>
     </Background>
   );
@@ -222,11 +243,13 @@ const styles = StyleSheet.create({
   Container: {
     backgroundColor: Colors.TXT,
     width: SLIDER_WIDTH,
-    height: 260,
+    height: 210,
     position: 'absolute',
     bottom: 0,
     borderRadius: 25,
     elevation: 10,
+    paddingHorizontal: 20,
+    alignItems: 'center'
   },
   map: {
     width: '100%',
@@ -236,11 +259,51 @@ const styles = StyleSheet.create({
   },
   recenterButton: {
     position: 'absolute',
-    bottom: 270,
+    bottom: 214,
     right: 10,
     backgroundColor: Colors.BG,
     padding: 15,
     borderRadius: 50,
     elevation: 5,
   },
+  Row:{
+    flexDirection: 'row',
+    marginTop: 20,
+    gap: 90
+  },
+  text:{
+    fontSize: 14,
+    fontWeight: '500'
+  },
+  Colmn:{
+    marginTop:20,
+    gap: 10,
+  },
+  button:{
+    backgroundColor: Colors.DRPB,
+    height:64,
+    width:331,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 25,
+    marginTop: 20
+  },
+  transform:{
+    transform: [{rotate: '180deg'}],
+    marginBottom: 60
+  },
+  Biomerics:{
+    flexDirection:'row',
+    gap: 20
+  },
+  Contact:{
+    flexDirection:'row',
+    gap: 20
+  },
+  textDriver:{
+    color: Colors.TXT
+  }
+  
+  
+  
 });
