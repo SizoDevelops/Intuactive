@@ -206,7 +206,7 @@ export default function Health() {
           <Text style={styles.paragraph}>Sleep Pattern</Text>
         </View>
         <View style={styles.section}>
-          <Checkbox
+          <Checkbox 
             style={styles.checkbox}
             value={isChecked4}
             onValueChange={setChecked4}
@@ -258,10 +258,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     paragraph: {
-      fontSize: 15,
+      fontSize: 17,
     },
     checkbox: {
-      margin: 8,
+      margin: 15,
+      height: 30,
+      width: 30
     },
 
   })
