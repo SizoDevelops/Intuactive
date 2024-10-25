@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     fontSize: normalize(18),
     fontWeight: "600",
     color: Colors.TXTALT,
-    marginBottom: 15
+    marginBottom: 5
   },
   condition:{
     lineHeight: 35,
