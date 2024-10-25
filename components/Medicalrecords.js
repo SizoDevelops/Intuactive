@@ -1,17 +1,69 @@
 import { useFocusEffect } from "@react-navigation/native";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Animated } from "react-native";
 import { setTabColor } from "../shared/TabColor";
-import { useCallback } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Colors } from "../shared/Colors";
 import Background from "./Background";
 import { StatusBar } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-import { normalize, SLIDER_WIDTH } from "../shared/functions";
+import { AntDesign, FontAwesome, FontAwesome5, FontAwesome6, Fontisto } from "@expo/vector-icons";
+import { normalize, SLIDER_HEIGHT, SLIDER_WIDTH } from "../shared/functions";
 import * as Progress from "react-native-progress";
+import { TouchableOpacity } from "react-native";
 
+
+const ExpandableCard = ({ title, items, icon }) => {
+  const [expanded, setExpanded] = useState(false);
+  const animation = useRef(new Animated.Value(0)).current;
+
+
+  const toggleExpand = () => {
+    Animated.timing(animation, {
+      toValue: expanded ? 0 : 1,
+      duration: 300,
+      useNativeDriver: false,
+    }).start();
+    setExpanded(!expanded);
+  };
+
+  const containerHeight = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [80, items.length * 34],
+  });
+
+  return (
+
+    <View style={styles.expandable} >
+                      <Text>Last Updated: 10/10/2021</Text>
+                      <View>
+                      <Animated.View style={[styles.expandedView, { height:  containerHeight }]}>
+
+                        <View>
+                          
+                            <Text style={styles.title}>{title}</Text>
+                         
+                          <View>
+                          {items.map((item, index) => (
+                            <Text key={index} style={styles.item}>{item}</Text>
+                          ))}
+                          </View>
+                        </View>
+                        <TouchableOpacity onPress={toggleExpand}>
+                          {
+                            icon
+                          }
+                        </TouchableOpacity>
+                          
+                    </Animated.View>
+                  </View>
+                  </View>
+    
+  );
+};
 export default function Medicalrecords (){
     const dispatch = useDispatch()
+
+    const animation = useRef(new Animated.Value(0)).current;
     useFocusEffect(
         useCallback(() => {
           StatusBar.setBarStyle("dark-content");
@@ -26,6 +78,16 @@ export default function Medicalrecords (){
           );
         }, [])
     )
+
+
+    const sections = [
+      { title: 'Medical Conditions', items: ['Diabetes', 'Hypertension', 'Cardiovascular Disease', 'Heart Disease', 'Respiratory Disease'], icon: <FontAwesome6 name="hand-holding-medical" size={40} color={Colors.BG} /> },
+      { title: 'Medications', items: ['Metformin', 'Amlodipine', 'Atorvastatin', 'Lisinopril'], icon: <AntDesign name="medicinebox" size={40} color={Colors.BG} /> },
+      { title: 'Allergies', items: ['Penicillin', 'Peanuts', 'Dust Mites'], icon: <FontAwesome5 name="allergies" size={40} color={Colors.BG} />},
+      { title: 'Past Surgeries', items: ['Appendectomy', 'Knee Replacement'], icon: <Fontisto name="surgical-knife" size={40} color={Colors.BG} /> },
+      { title: 'Family History', items: ['Heart Disease', 'Diabetes', 'Breast Cancer'], icon: <FontAwesome name="plus" size={30} color={Colors.BG} /> },
+    ];
+
     return(
         <Background color= {Colors.BGALT}>
             <View style={styles.header}>
@@ -71,15 +133,16 @@ export default function Medicalrecords (){
                 <Text>16 Dec</Text>
             </View>
             
-            <View style={[styles.container, {paddingLeft: 20}]}>
+            <View style={{paddingLeft: 20, flex: 1}}>
                 <Text style={[styles.text, {fontSize: normalize(18), marginTop: 15}]}>Medical Records</Text>
 
-                <ScrollView style={{marginTop: 20}}>
+                <ScrollView style={{marginTop: 10, flex: 1}}>
 
-                  <View style={styles.expandable}>
-                      <Text>Last Updated: 10/10/2021</Text>
-                  </View>
-                    
+                  {sections.map((section, index) => (
+                    <ExpandableCard key={index} title={section.title} items={section.items} icon={section.icon}/>
+                
+                    ))}
+
                 </ScrollView>
             </View>
         </Background>
@@ -105,6 +168,32 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: SLIDER_WIDTH / 2,
     marginTop: 10
+  },
+  expandedView: {
+    overflow: 'hidden',
+    width: SLIDER_WIDTH - 40,
+    borderRadius: 5,
+    marginTop: 10,
+    borderWidth: 1, 
+    borderColor: Colors.BG,
+    padding: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+   
+  },
+  title:{
+    fontSize: normalize(18),
+    fontWeight: "600",
+    color: Colors.TXTALT,
+    marginBottom: 15
+  },
+  condition:{
+    lineHeight: 35,
+    fontSize: normalize(15),
+    fontWeight: "400",
+  },
+  expandable: {
+    marginVertical: 20,
+   
   }
 })
-   
