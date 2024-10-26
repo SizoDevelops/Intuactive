@@ -112,6 +112,15 @@ const HomeStack = () => {
           animation: 'slide_from_right',
         }}
       />
+  <Stack.Screen
+        name="BluetoothScan"
+        
+        component={BluetoothScan}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
 
       <Stack.Screen
         name="LoginTwo"

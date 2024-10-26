@@ -210,14 +210,16 @@ export default function ViewMap() {
                 <Text style={styles.text}>Driver</Text>
             </View>
           </View>
-          <Pressable style={styles.Contact}>  
+          <Pressable  style={styles.Contact}>  
             <FontAwesome6 name="message" size={24} color={Colors.TXTALT} />
             <Ionicons name="call-outline" size={24} color={Colors.TXTALT} style={styles.transform} />
           </Pressable>
         </View>
-        <View style={styles.button}>
+        <Pressable onPress={() => {
+              navigation.navigate("DistanceView");
+            }}  style={styles.button}>
           <Text style={styles.textDriver}>Minimal View</Text>
-        </View>
+        </Pressable>
       </View>
     </Background>
   );
