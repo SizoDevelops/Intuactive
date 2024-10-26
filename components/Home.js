@@ -3,7 +3,6 @@ import {
   Text,
   StyleSheet,
   Pressable,
-  Image,
   StatusBar,
 } from "react-native";
 
@@ -12,20 +11,20 @@ import {
   Entypo,
   Feather,
   FontAwesome5,
-  FontAwesome6,
-  Ionicons,
 } from "@expo/vector-icons";
 import { Colors } from "../shared/Colors";
 import HomeButton from "../shared/HomeButton";
 import * as Progress from "react-native-progress";
 import MenuButton from "../shared/MenuButton";
-
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-
 import { setTabColor } from "../shared/TabColor";
 import { normalize } from "../shared/functions";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
+import { Image } from "react-native";
+import CheckupIcon from "../shared/icons/CheckupIcon";
+import EmergoIcon from "../shared/icons/EmergoIcon";
+import WatchIcon from "../shared/icons/WatchIcon";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -68,38 +67,34 @@ export default function Home() {
         </View>
 
         <View style={styles.greeting}>
-          <Pressable
-            onPress={() => {
-              navigation.navigate("Medicalrecords");
-            }}
-          >
+          <View>
             <Text style={[styles.text]}>For emergency</Text>
             <HomeButton
+              screen={"DistanceView"}
               image_path={require("../assets/images/ambulance.png")}
               buttonText={"EmergGo"}
               buttonIcon={
-                <Entypo name="location" size={35} color={Colors.TXTALT} />
+                <EmergoIcon/>
               }
             />
-          </Pressable>
+          </View>
 
           <View>
             <Text style={[styles.text]}>For your health</Text>
             <HomeButton
+              screen={"MedicalRecords"}
               image_path={require("../assets/images/watchflower.png")}
               buttonText={"LifeLink"}
               buttonIcon={
-                <FontAwesome5
-                  name="heartbeat"
-                  size={35}
-                  color={Colors.TXTALT}
-                />
+                <WatchIcon/>
               }
             />
           </View>
         </View>
 
-        <View style={styles.greet}>
+        <Pressable  onPress={() => {
+              navigation.navigate("MedicalRecords");
+            }} style={styles.greet}>
           <Text
             style={[
               styles.text,
@@ -114,6 +109,7 @@ export default function Home() {
             Track
           </Text>
           <View
+           
             style={{
               marginBottom: 30,
               flexDirection: "row",
@@ -121,7 +117,7 @@ export default function Home() {
               alignItems: "center",
             }}
           >
-            <Feather name="check-square" size={30} color={Colors.TXT} />
+           <CheckupIcon/>
             <Text style={[styles.text]}>Next Checkup</Text>
           </View>
 
@@ -184,7 +180,7 @@ export default function Home() {
               </Text>
             </View>
           </View>
-        </View>
+        </Pressable>
       </View>
     </Background>
   );

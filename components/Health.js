@@ -12,11 +12,10 @@ import Checkbox from 'expo-checkbox';
 
 
 export default function Health() {
-  const [isChecked, setChecked] = useState(false)
-  const [isChecked1, setChecked1] = useState(false)
-  const [isChecked2, setChecked2] = useState(false)
-  const [isChecked3, setChecked3] = useState(false)
-  const [isChecked4, setChecked4] = useState(false)
+  const [isChecked1, setChecked1] = useState(true)
+  const [isChecked2, setChecked2] = useState(true)
+  const [isChecked3, setChecked3] = useState(true)
+  const [isChecked4, setChecked4] = useState(true)
   const dispatch = useDispatch()
   useFocusEffect(
     useCallback(() => {
@@ -31,96 +30,59 @@ export default function Health() {
     }, []),
   );
 
+ 
   const heartRate = [
-    {value: 60, dataPointText: '0'},
-    {value: 20, dataPointText: '10'},
-    {value: 40, dataPointText: '8'},
-    {value: 68, dataPointText: '58'},
-    {value: 10, dataPointText: '56'},
-    {value: 70, dataPointText: '78'},
-    {value: 74, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-    {value: 10, dataPointText: '56'},
-    {value: 70, dataPointText: '78'},
-    {value: 74, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-    {value: 34, dataPointText: '74'},
-    {value: 28, dataPointText: '98'},
-    {value: 50, dataPointText: '60'},
-    {value: 44, dataPointText: '54'},
-    {value: 25, dataPointText: '85'},
-    {value: 60, dataPointText: '0'},
-    {value: 20, dataPointText: '10'},
-    {value: 40, dataPointText: '8'},
-    
+    { value: 72, dataPointText: '72' },
+    { value: 75, dataPointText: '75' },
+    { value: 78, dataPointText: '78' },
+    { value: 74, dataPointText: '74' },
+    { value: 77, dataPointText: '77' },
+    { value: 79, dataPointText: '79' },
+    { value: 76, dataPointText: '76' },
+    { value: 80, dataPointText: '80' },
+    { value: 74, dataPointText: '74' },
+    { value: 82, dataPointText: '82' }
   ];
-
+  
   const bloodPressure = [
-    {value: 10, dataPointText: '0'},
-    {value: 20, dataPointText: '20'},
-    {value: 68, dataPointText: '18'},
-    {value: 20, dataPointText: '40'},
-    {value: 36, dataPointText: '36'},
-    {value: 10, dataPointText: '56'},
-    {value: 50, dataPointText: '78'},
-    {value: 34, dataPointText: '74'},
-    {value: 28, dataPointText: '98'},
-    {value: 50, dataPointText: '60'},
-    {value: 44, dataPointText: '54'},
-    {value: 25, dataPointText: '85'},
-    {value: 60, dataPointText: '0'},
-    {value: 20, dataPointText: '10'},
-    {value: 40, dataPointText: '8'},
-    {value: 68, dataPointText: '58'},
-    {value: 10, dataPointText: '56'},
-    {value: 70, dataPointText: '78'},
-    
+    { value: 118, dataPointText: '118' },
+    { value: 120, dataPointText: '120' },
+    { value: 122, dataPointText: '122' },
+    { value: 90, dataPointText: '117' },
+    { value: 119, dataPointText: '119' },
+    { value: 121, dataPointText: '121' },
+    { value: 116, dataPointText: '116' },
+    { value: 118, dataPointText: '118' },
+    { value: 120, dataPointText: '120' },
+    { value: 119, dataPointText: '119' }
   ];
+  
   const sleepPattern = [
-    {value: 10, dataPointText: '0'},
-    {value: 50, dataPointText: '20'},
-    {value: 38, dataPointText: '18'},
-    {value: 10, dataPointText: '40'},
-    {value: 16, dataPointText: '36'},
-    {value: 5, dataPointText: '56'},
-    {value: 60, dataPointText: '78'},
-    {value: 74, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-    {value: 40, dataPointText: '60'},
-    {value: 44, dataPointText: '54'},
-    {value: 25, dataPointText: '85'},
-    {value: 74, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-    {value: 10, dataPointText: '56'},
-    {value: 70, dataPointText: '78'},
-    {value: 74, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-
+    { value: 30, dataPointText: '30' },
+    { value: 45, dataPointText: '45' },
+    { value: 38, dataPointText: '38' },
+    { value: 50, dataPointText: '50' },
+    { value: 25, dataPointText: '25' },
+    { value: 40, dataPointText: '40' },
+    { value: 35, dataPointText: '35' },
+    { value: 30, dataPointText: '30' },
+    { value: 45, dataPointText: '45' },
+    { value: 33, dataPointText: '33' }
   ];
+  
   const bloodOxygenSaturation = [
-    {value: 70, dataPointText: '0'},
-    {value: 30, dataPointText: '20'},
-    {value: 48, dataPointText: '18'},
-    {value: 10, dataPointText: '40'},
-    {value: 16, dataPointText: '36'},
-    {value: 10, dataPointText: '56'},
-    {value: 20, dataPointText: '78'},
-    {value: 64, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-    {value: 60, dataPointText: '60'},
-    {value: 44, dataPointText: '54'},
-    {value: 25, dataPointText: '85'},
-    {value: 16, dataPointText: '36'},
-    {value: 5, dataPointText: '56'},
-    {value: 60, dataPointText: '78'},
-    {value: 74, dataPointText: '74'},
-    {value: 58, dataPointText: '98'},
-    {value: 40, dataPointText: '60'},
-    {value: 44, dataPointText: '54'},
-    {value: 25, dataPointText: '85'},
-    {value: 74, dataPointText: '74'},
-
+    { value: 98, dataPointText: '98' },
+    { value: 97, dataPointText: '97' },
+    { value: 99, dataPointText: '99' },
+    { value: 98, dataPointText: '98' },
+    { value: 97, dataPointText: '97' },
+    { value: 96, dataPointText: '96' },
+    { value: 98, dataPointText: '98' },
+    { value: 99, dataPointText: '99' },
+    { value: 98, dataPointText: '98' },
+    { value: 97, dataPointText: '97' }
   ];
+  
   
   return (
     <Background color={Colors.BGALT}>
@@ -136,27 +98,39 @@ export default function Health() {
 
       <View style={styles.Graph}>
       <LineChart
-          data={heartRate} 
-          data2={bloodPressure}
-          data3={sleepPattern}
-          data4={bloodOxygenSaturation}
-          height={200}
-          showVerticalLines = {false}
-          spacing={44}
-          initialSpacing={0}
-          color1={isChecked1 ? Colors.PURPLE : 'transparent'}
-          color2={isChecked2 ? Colors.RED : 'transparent'}
-          color3={isChecked3 ? Colors.ORANGE : 'transparent'}
-          color4={isChecked4 ? Colors.GREEN : 'transparent'}
-          hideData = {isChecked}
-          hideDataPoints
-          hideRules
-          yAxisColor={Colors.TXT}
-          textShiftY={-2}
-          textShiftX={-5}
-          textFontSize={13}
-          curved
-      />
+    data={heartRate} 
+    data2={bloodPressure}
+    data3={sleepPattern}
+    data4={bloodOxygenSaturation}
+    height={200}
+    overflowTop={300}
+    showVerticalLines={false}
+    spacing={44}
+    initialSpacing={0}
+    color1={isChecked1 ? Colors.PURPLE : 'transparent'}
+    color2={isChecked2 ? Colors.RED : 'transparent'}
+    color3={isChecked3 ? Colors.ORANGE : 'transparent'}
+    color4={isChecked4 ? Colors.GREEN : 'transparent'}
+    
+    hideDataPoints={true}
+   
+    hideRules
+    
+    yAxisColor={Colors.TXT}
+    xAxisColor={Colors.TXT}
+    yAxisOffset={20}  
+   
+    yAxisMaxValue={130}   
+    yAxisMinValue={0}     
+    stepValue={20}        
+    noOfVerticalLines={10} 
+
+    textShiftY={-2}
+    textShiftX={-5}
+    textFontSize={13}
+    curved
+/>
+
       </View>
       <View style={styles.listVitals}>
         <View style={styles.ColmnVitals}>
@@ -261,9 +235,9 @@ const styles = StyleSheet.create({
       fontSize: 17,
     },
     checkbox: {
-      margin: 15,
-      height: 30,
-      width: 30
+      margin: 18,
+      height: 25,
+      width: 25
     },
 
   })

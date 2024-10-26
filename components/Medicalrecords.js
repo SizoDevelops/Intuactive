@@ -7,36 +7,18 @@ import { Colors } from "../shared/Colors";
 import Background from "./Background";
 import { StatusBar } from "react-native";
 import { AntDesign, FontAwesome, FontAwesome5, FontAwesome6, Fontisto } from "@expo/vector-icons";
-import { normalize, SLIDER_HEIGHT, SLIDER_WIDTH } from "../shared/functions";
+import { normalize, SLIDER_WIDTH } from "../shared/functions";
 import * as Progress from "react-native-progress";
 import { TouchableOpacity } from "react-native";
 
 
 const ExpandableCard = ({ title, items, icon }) => {
-  const [expanded, setExpanded] = useState(false);
-  const animation = useRef(new Animated.Value(0)).current;
-
-
-  const toggleExpand = () => {
-    Animated.timing(animation, {
-      toValue: expanded ? 0 : 1,
-      duration: 300,
-      useNativeDriver: false,
-    }).start();
-    setExpanded(!expanded);
-  };
-
-  const containerHeight = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [80, items.length * 34],
-  });
-
   return (
 
     <View style={styles.expandable} >
                       <Text>Last Updated: 10/10/2021</Text>
                       <View>
-                      <Animated.View style={[styles.expandedView, { height:  containerHeight }]}>
+                      <View style={[styles.expandedView]}>
 
                         <View>
                           
@@ -48,13 +30,13 @@ const ExpandableCard = ({ title, items, icon }) => {
                           ))}
                           </View>
                         </View>
-                        <TouchableOpacity onPress={toggleExpand}>
+                      
                           {
                             icon
                           }
-                        </TouchableOpacity>
+                       
                           
-                    </Animated.View>
+                    </View>
                   </View>
                   </View>
     
@@ -63,7 +45,7 @@ const ExpandableCard = ({ title, items, icon }) => {
 export default function Medicalrecords (){
     const dispatch = useDispatch()
 
-    const animation = useRef(new Animated.Value(0)).current;
+
     useFocusEffect(
         useCallback(() => {
           StatusBar.setBarStyle("dark-content");
@@ -166,7 +148,7 @@ const styles = StyleSheet.create({
   container:{
     flexDirection: "row",
     justifyContent: "space-between",
-    width: SLIDER_WIDTH / 2,
+    width: SLIDER_WIDTH / 1.7,
     marginTop: 10
   },
   expandedView: {
@@ -174,18 +156,16 @@ const styles = StyleSheet.create({
     width: SLIDER_WIDTH - 40,
     borderRadius: 5,
     marginTop: 10,
-    borderWidth: 1, 
-    borderColor: Colors.BG,
-    padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+    minHeight: 100
    
   },
   title:{
     fontSize: normalize(18),
     fontWeight: "600",
     color: Colors.TXTALT,
-    marginBottom: 15
+    marginBottom: 5
   },
   condition:{
     lineHeight: 35,

@@ -13,11 +13,6 @@ import * as Location from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
 import Config from '../config';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { rotate } from 'react-native-redash';
-
-
-
-
 
 export default function ViewMap() {
   const [regions, setRegion] = useState({
@@ -211,8 +206,8 @@ export default function ViewMap() {
           <View style={styles.Biomerics}>
             <Image source={require('../assets/images/DriverProfile.png')}/>
             <View style={styles.Colmn}>
-                <Text style={styles.text}>Thabo</Text>
-                <Text style={styles.text}>Motloung</Text>
+                <Text style={styles.text}>Thabo Motloung</Text>
+                <Text style={styles.text}>Driver</Text>
             </View>
           </View>
           <Pressable style={styles.Contact}>  
@@ -221,7 +216,7 @@ export default function ViewMap() {
           </Pressable>
         </View>
         <View style={styles.button}>
-          <Text style={styles.textDriver}>Driver Profile</Text>
+          <Text style={styles.textDriver}>Minimal View</Text>
         </View>
       </View>
     </Background>
@@ -285,7 +280,7 @@ const styles = StyleSheet.create({
     width:331,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 25,
+    borderRadius: 50,
     marginTop: 20
   },
   transform:{
