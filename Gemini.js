@@ -1,6 +1,7 @@
 
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { default: Config } = require("./config");
 
 // Make sure to include these imports:
 // import { GoogleGenerativeAI } from "@google/generative-ai";
