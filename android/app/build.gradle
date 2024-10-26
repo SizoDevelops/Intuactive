@@ -1,0 +1,35 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
+project.ext.react = [
+    enableHermes: false,  // Disable Hermes if you are not using it
+]
+
+android {
+    compileSdkVersion 33 // Use the latest stable SDK version
+
+    defaultConfig {
+        applicationId "com.sizodevelops.Intuactive"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        // Required for Health Connect
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "com.facebook.react:react-native:${project.ext.react.reactNativeVersion}"
+    implementation "com.google.android.gms:play-services-health:18.0.0" // Health services
+    implementation "androidx.health.connect:health-connect-client:1.0.0" // Health Connect API
+    // Add other dependencies as required
+}
