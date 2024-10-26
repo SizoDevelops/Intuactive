@@ -141,6 +141,15 @@ const HomeStack = () => {
         }}
       />
       <Stack.Screen
+        name="Gemini"
+        component={Gemini}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+          animation: "slide_from_right",
+        }}
+      />
+      <Stack.Screen
         name="ViewMap"
         component={ViewMap}
         options={{
