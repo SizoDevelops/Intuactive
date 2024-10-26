@@ -22,6 +22,8 @@ import DistanceView from "../components/DistanceView";
 import OTPScreen from "../components/OTPScreen";
 import LoginTwo from "../components/LoginTwo";
 import ViewMap from "../components/ViewMap";
+import BluetoothScan from '../components/BluetoothScan';
+import BluetoothConnect from '../components/BluetoothConnect';
 
 
 const Stack = createNativeStackNavigator();
@@ -138,6 +140,7 @@ const HomeStack = () => {
           animation: "slide_from_right",
         }}
       />
+       
     </Stack.Navigator>
   );
 };
