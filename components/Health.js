@@ -12,11 +12,10 @@ import Checkbox from 'expo-checkbox';
 
 
 export default function Health() {
-  const [isChecked, setChecked] = useState(false)
-  const [isChecked1, setChecked1] = useState(false)
-  const [isChecked2, setChecked2] = useState(false)
-  const [isChecked3, setChecked3] = useState(false)
-  const [isChecked4, setChecked4] = useState(false)
+  const [isChecked1, setChecked1] = useState(true)
+  const [isChecked2, setChecked2] = useState(true)
+  const [isChecked3, setChecked3] = useState(true)
+  const [isChecked4, setChecked4] = useState(true)
   const dispatch = useDispatch()
   useFocusEffect(
     useCallback(() => {
@@ -148,7 +147,7 @@ export default function Health() {
           color2={isChecked2 ? Colors.RED : 'transparent'}
           color3={isChecked3 ? Colors.ORANGE : 'transparent'}
           color4={isChecked4 ? Colors.GREEN : 'transparent'}
-          hideData = {isChecked}
+      
           hideDataPoints
           hideRules
           yAxisColor={Colors.TXT}

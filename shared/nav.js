@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Pressable, BackHandler, StyleSheet, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable, BackHandler, StyleSheet, Modal, Image } from 'react-native';
 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
@@ -7,8 +7,9 @@ import { SLIDER_WIDTH } from './functions';
 import { Colors } from './Colors';
 import { Fontisto, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
-
-
+import HomeIcon from './icons/HomeIcon';
+import HealthIcon from './icons/HealthIcon';
+import StatsIcon from './icons/StatsIcon';
 
 
 function MyTabBar({ state, descriptors, navigation }) {
@@ -69,8 +70,10 @@ function MyTabBar({ state, descriptors, navigation }) {
             <View style={{alignItems: 'center'}}>
                 {
                     route.name === 'Home' ? (
-                      <FontAwesome name="send-o" size={30} color={colors.icons} />
-                    ) : route.name === 'Health' ? <Fontisto name="heartbeat-alt" size={40} color={colors.icons} />: <MaterialCommunityIcons name="bullseye-arrow" size={35} color={colors.icons} />
+                      <HomeIcon strokeColor={colors.icons} strokeWidth={4}/>
+                    ) : route.name === 'Health' ?
+                      <HealthIcon strokeColor={colors.icons}/>
+                    : <StatsIcon strokeColor={colors.icons}/>
                 }
             </View> 
             

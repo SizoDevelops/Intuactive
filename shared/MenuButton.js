@@ -1,15 +1,15 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
 import { Colors } from './Colors'
 import { useNavigation } from '@react-navigation/native'
+import MenuIcon from './icons/MenuIcon'
 
 export default function MenuButton({bg="#D9D9D939", iconColor=Colors.TXT}) {
 
    
   return (
     <Pressable style={[styles.menuholder, {backgroundColor: bg}]} >
-          <Ionicons style={styles.icon} name="menu" size={40} color={iconColor} />
+          <MenuIcon style={styles.icon} Color={iconColor}/>
     </Pressable>
   )
 }
@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
         top: -40,
         left: -44,
      
-        width: 138,
-        height: 138,
+        width: 128,
+        height: 128,
         borderRadius: 100
       },
     

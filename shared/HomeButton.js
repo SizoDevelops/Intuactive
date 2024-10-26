@@ -4,13 +4,13 @@ import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { normalize } from './functions'
 
-export default function HomeButton({image_path, buttonText, buttonIcon}) {
+export default function HomeButton({image_path, buttonText, buttonIcon, screen}) {
 
   const navigation = useNavigation()
 
   return (
     <Pressable style={styles.buttons} onPress={() => {
-      navigation.navigate("Login")
+      navigation.navigate(screen)
     }}>
     <Image style={styles.image} source={image_path}/>
     <View style={styles.btnIcon}>
