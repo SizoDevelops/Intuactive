@@ -1,6 +1,4 @@
-const Config ={
-    GOOGLE_MAPS_API_KEY:"AIzaSyB-w_lAOg3rTPj8b_TvFQM_QtgEn_xEoMM"
-}
+
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
