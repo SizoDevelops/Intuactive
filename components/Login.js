@@ -45,7 +45,7 @@ export default function Login(){
                 </View>
                 <View>
                     <Pressable style = {styles.Button} onPress={() => {
-                        navigation.navigate("LoginTwo")
+                        navigation.navigate("OTPScreen")
                     }}>
                     <AntDesign name="arrowright" size={40} color={Colors.TXT} />
                     </Pressable>

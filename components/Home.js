@@ -82,7 +82,7 @@ export default function Home() {
           <View>
             <Text style={[styles.text]}>For your health</Text>
             <HomeButton
-              screen={"MedicalRecords"}
+              screen={"BluetoothScan"}
               image_path={require("../assets/images/watchflower.png")}
               buttonText={"LifeLink"}
               buttonIcon={

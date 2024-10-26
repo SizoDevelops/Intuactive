@@ -57,7 +57,7 @@ export default function LoginTwo(){
                 </View>
                 <View>
                     <Pressable style = {styles.Button} onPress={() => {
-                        navigation.navigate("OTPScreen")
+                        navigation.navigate("Login")
                     }}>
                     <AntDesign name="arrowright" size={40} color={Colors.TXT} />
                     </Pressable>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         height: 510,
         width: 343,
         margin: "auto",
-        top: -70,
+        top: -90,
         borderRadius: 25,
         backgroundColor: Colors.BGALT,
         elevation: 9
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 'auto',
         justifyContent: 'center',
         alignItems: 'center',
-        top: 50
+        top: 30
     },
           
     Back:{
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 80,
+        marginTop: 50,
         paddingHorizontal: 20
     },
     SendCode:{

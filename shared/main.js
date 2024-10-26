@@ -22,6 +22,8 @@ import DistanceView from "../components/DistanceView";
 import OTPScreen from "../components/OTPScreen";
 import LoginTwo from "../components/LoginTwo";
 import ViewMap from "../components/ViewMap";
+import BluetoothScan from '../components/BluetoothScan';
+import BluetoothConnect from '../components/BluetoothConnect';
 
 
 const Stack = createNativeStackNavigator();
@@ -110,6 +112,15 @@ const HomeStack = () => {
           animation: 'slide_from_right',
         }}
       />
+  <Stack.Screen
+        name="BluetoothScan"
+        
+        component={BluetoothScan}
+        options={{
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
 
       <Stack.Screen
         name="LoginTwo"
@@ -130,6 +141,15 @@ const HomeStack = () => {
         }}
       />
       <Stack.Screen
+        name="Gemini"
+        component={Gemini}
+        options={{
+          presentation: "modal",
+          headerShown: false,
+          animation: "slide_from_right",
+        }}
+      />
+      <Stack.Screen
         name="ViewMap"
         component={ViewMap}
         options={{
@@ -138,6 +158,7 @@ const HomeStack = () => {
           animation: "slide_from_right",
         }}
       />
+       
     </Stack.Navigator>
   );
 };

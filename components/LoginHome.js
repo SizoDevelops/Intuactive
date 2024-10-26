@@ -1,13 +1,14 @@
 import { Pressable, StatusBar, StyleSheet, Text, View } from "react-native";
 import Background from "./Background";
 import { Colors } from "../shared/Colors";
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { setTabColor } from "../shared/TabColor";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { normalize } from "../shared/functions";
 export default function LoginHome(){
+    const navigation = useNavigation()
     const dispatch = useDispatch()
     useFocusEffect(
         useCallback(() => {
@@ -23,6 +24,7 @@ export default function LoginHome(){
           );
         }, [])
       )
+
     return (
         <Background color= {Colors.BGALT}>
             <View style= {styles.container}>
@@ -49,7 +51,9 @@ export default function LoginHome(){
             <Text style={styles.textLogin}>
                 Log into another account
             </Text>
-            <Pressable style={styles.button}>
+            <Pressable onPress={() => {
+              navigation.navigate("LoginTwo");
+            }}  style={styles.button}>
                 <Text style={styles.textButton}>
                     Create new account
                 </Text>
