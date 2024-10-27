@@ -52,49 +52,49 @@ export default function Learning() {
 
             <View style={styles.butt}>
                 <Pressable style={styles.lesson}>
-                <FontAwesome5 name="lungs" size={24} color={Colors.TXT} />
+                <FontAwesome5 name="lungs" size={40} color={Colors.TXT} />
                 </Pressable>
-                <Text style={{fontSize: 14, width: 50}}>
-                Caring for Your Lungs
+                <Text style={{fontSize: 14,}}>
+                Lungs Care
                 </Text>
             </View>
             <View style={styles.butt}>
                 <Pressable style={styles.lesson}>
-                <FontAwesome5 name="allergies" size={35} color={Colors.TXT} />
+                    <FontAwesome5 name="user-injured" size={40} color={Colors.TXT} />
                 </Pressable>
-                <Text style={{fontSize: 14, width: 50}}>
-                Allergies
+                <Text style={{fontSize: 14,}}>
+                    Managing Pain
                 </Text>
             </View>
             <View style={styles.butt}>
                 <Pressable style={styles.lesson}>
                 <MaterialCommunityIcons name="diabetes" size={40} color={Colors.TXT} />
                 </Pressable>
-                <Text style={{fontSize: 14, width: 50}}>
+                <Text style={{fontSize: 14,}}>
                 Diabetes
                 </Text>
             </View>
             <View style={styles.butt}>
-                <Pressable style={styles.lesson}>
-                <FontAwesome5 name="user-injured" size={40} color={Colors.TXT} />
+            <Pressable style={styles.lesson}>
+                <FontAwesome5 name="allergies" size={40} color={Colors.TXT} />
                 </Pressable>
-                <Text style={{fontSize: 14, width: 50}}>
-                    Managing Pain
+                <Text style={{fontSize: 14,}}>
+                Allergies
                 </Text>
             </View>
             <View style={styles.butt}>
                 <Pressable style={styles.lesson}>
                 <FontAwesome5 name="pills" size={40} color={Colors.TXT} />
                 </Pressable>
-                <Text style={{fontSize: 14, width: 50}}>
-                Chronic Illnesses
+                <Text style={{fontSize: 14,}}>
+                Chronic Illness
                 </Text>
             </View>
             <View style={styles.butt}>
                 <Pressable style={styles.lesson}>
                 <MaterialIcons name="health-and-safety" size={40} color={Colors.TXT} />
                 </Pressable>
-                <Text style={{fontSize: 14, width: 50}}>
+                <Text style={{fontSize: 14,}}>
                 Kidney Health
                 </Text>
             </View>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     images:{
         flexDirection: "row",
         justifyContent: "space-evenly",
-        marginTop: 30
+        marginTop: 20
     },
     buttons: {
         alignItems: "center",
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
       butt:{
         justifyContent: "center",
         alignItems: "center",
-        gap: 10
+        gap: 10,
+        marginTop: -15
       }
 })

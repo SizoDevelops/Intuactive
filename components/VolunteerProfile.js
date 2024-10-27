@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: SLIDER_WIDTH - 40,
         borderRadius: 25,
-        height: 390,
+        height: 350,
         shadowColor: "#000",
         elevation: 7,
         margin:20
@@ -145,13 +145,13 @@ const styles = StyleSheet.create({
       text: {
         marginTop: 30,
         marginHorizontal: 20,
-        fontSize: 16
+        fontSize: 14
       },
       btn:{
         marginTop: 20,
         margin: "auto",
         height: 56,
-        width: 254,
+        width: 190,
         borderRadius: 50,
         backgroundColor: Colors.BG,
         justifyContent: "center",
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
       },
       btnText: {
         color: Colors.TXT,
-        fontSize: 18
+        fontSize: 16
       },
       cont:{
         width: SLIDER_WIDTH,
