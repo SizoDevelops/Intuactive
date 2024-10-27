@@ -40,7 +40,12 @@ export default {
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.ACCESS_MEDIA_LOCATION"
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.health.READ_BODY_TEMPERATURE",
+        "android.permission.health.READ_BLOOD_PRESSURE",
+        "android.permission.health.READ_HEART_RATE",
+        "android.permission.health.READ_SLEEP",
+       
       ]
     },
     web: {
@@ -70,6 +75,15 @@ export default {
             "targetSdkVersion": 35,
             "minSdkVersion": 26
           },
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/adaptive-icon.png",
+          "color": "#ffffff",
+          "defaultChannel": "default",
+          
         }
       ]
     

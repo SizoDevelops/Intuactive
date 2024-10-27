@@ -5,6 +5,10 @@ import { Colors } from '../shared/Colors'
 import { normalize } from '../shared/functions'
 
 export default function BluetoothConnect() {
+
+   
+
+
   return (
     <Background>
         <View style={styles.Container}>
