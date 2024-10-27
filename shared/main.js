@@ -150,7 +150,22 @@ const HomeStack = () => {
           animation: "slide_from_right",
         }}
       />
-       
+       <Stack.Screen
+        name="Documents"
+        component={Documents}
+        options={{
+          headerShown: false,
+          animation: "slide_from_right",
+        }}
+      />
+      <Stack.Screen
+        name="VolunteerProfile"
+        component={VolunteerProfile}
+        options={{
+          headerShown: false,
+          animation: "slide_from_right",
+        }}
+      />
     </Stack.Navigator>
   );
 };

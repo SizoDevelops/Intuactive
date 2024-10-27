@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Pressable,
   StatusBar,
+  Animated,
 } from "react-native";
 
 import Background from "./Background";
@@ -18,8 +19,8 @@ import * as Progress from "react-native-progress";
 import MenuButton from "../shared/MenuButton";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { setTabColor } from "../shared/TabColor";
-import { normalize } from "../shared/functions";
-import { useCallback } from "react";
+import { normalize, SLIDER_WIDTH } from "../shared/functions";
+import { useCallback, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Image } from "react-native";
 import CheckupIcon from "../shared/icons/CheckupIcon";
@@ -186,6 +187,10 @@ export default function Home() {
   );
 }
 
+
+
+
+
 const styles = StyleSheet.create({
   text: {
     color: "#fff",
@@ -206,5 +211,31 @@ const styles = StyleSheet.create({
     position: "relative",
     paddingHorizontal: 40,
     top: 120,
+  },
+
+
+  menuContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: SLIDER_WIDTH * 0.75, // Cover 75% of the screen width
+    backgroundColor: '#333',
+    padding: 20,
+    paddingTop: 50,
+  },
+  menuTitle: {
+    fontSize: 24,
+    color: 'white',
+    marginBottom: 20,
+  },
+  menuOption: {
+    paddingVertical: 15,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+  },
+  menuText: {
+    fontSize: 18,
+    color: 'white',
   },
 });

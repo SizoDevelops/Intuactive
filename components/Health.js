@@ -46,31 +46,34 @@ export default function Health() {
     const HeartRate = [];
     const SleepPattern = [];
     const BodyTemperature = [];
-
+  
     for (let i = 0; i < 28; i++) {
       const date = new Date();
-      date.setDate(today.getDate() - i); 
-
-      const dateISO = date.toISOString();
-
+      date.setDate(today.getDate() - i); // Set the date to today minus i days
+  
+      // Format date to "23 Sep"
+      const dateFormatted = date.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+  
+      // Create fake data
       BloodPressure.push({ 
-        value: Math.floor(Math.random() * (130 - 110 + 1)) + 110,
-        dataPointText: `${Math.floor(Math.random() * (130 - 110 + 1)) + 110} on ${dateISO}`
+        value: Math.floor(Math.random() * (130 - 110 + 1)) + 110, // Random BP between 110-130
+        dataPointText: dateFormatted // Use formatted date
       });
       HeartRate.push({ 
-        value: Math.floor(Math.random() * (80 - 60 + 1)) + 60,
-        dataPointText: `${Math.floor(Math.random() * (80 - 60 + 1)) + 60} on ${dateISO}`
+        value: Math.floor(Math.random() * (80 - 60 + 1)) + 60, // Random HR between 60-80
+        dataPointText: dateFormatted
       });
       SleepPattern.push({ 
-        value: Math.floor(Math.random() * (8 - 4 + 1)) + 4,
-        dataPointText: `${Math.floor(Math.random() * (8 - 4 + 1)) + 4} hours on ${dateISO}`
+        value: Math.floor(Math.random() * (8 - 4 + 1)) + 4, // Random sleep hours between 4-8
+        dataPointText: `${Math.floor(Math.random() * (8 - 4 + 1)) + 4} hours on ${dateFormatted}`
       });
       BodyTemperature.push({ 
-        value: Math.floor(Math.random() * (100 - 95 + 1)) + 95,
-        dataPointText: `${Math.floor(Math.random() * (100 - 95 + 1)) + 95} on ${dateISO}`
+        value: Math.floor(Math.random() * (100 - 95 + 1)) + 95, // Random SpO2 between 95-100
+        dataPointText: dateFormatted
       });
     }
-
+  
+    // Return the fake data as an object
     return {
       bloodPressure: BloodPressure,
       heartRate: HeartRate,
@@ -78,6 +81,7 @@ export default function Health() {
       bodyTemperature: BodyTemperature,
     };
   };
+  
 
   // Ensure data is fetched before rendering the chart
   if (!data) return <Text>Loading data...</Text>;
@@ -98,6 +102,7 @@ export default function Health() {
           data2={data.bloodPressure}
           data3={data.sleepPattern}
           data4={data.bodyTemperature}
+          xAxisLabelTexts={data.heartRate.map(item => item.dataPointText)}
           height={200}
           overflowTop={300}
           showVerticalLines={false}
@@ -110,7 +115,7 @@ export default function Health() {
           hideDataPoints={true}
           hideRules
           yAxisColor={Colors.TXT}
-          xAxisColor={Colors.TXT}
+          xAxisColor={Colors.TXTALT}
           yAxisOffset={1}  
           yAxisMaxValue={130}   
           yAxisMinValue={0}     
