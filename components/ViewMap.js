@@ -22,27 +22,13 @@ export default function ViewMap() {
     longitudeDelta: 0.0521,
   });
   
-  const origin = { latitude: -26.195252799964948, longitude: 28.033747172261016 };
-  const destination = { latitude: -26.191859524197366, longitude: 28.0234963885825 };
-  
   const mapRef = useRef(null);
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const animationRef = useRef(null);
   
-  useFocusEffect(
-    useCallback(() => {
-      StatusBar.setBarStyle('dark-content');
-      StatusBar.setBackgroundColor(Colors.BGALT);
-      StatusBar.setTranslucent(true);
-
-      dispatch(setTabColor({
-        background: Colors.BGALT,
-        icons: Colors.TXTALT,
-      }));
-    }, [])
-  );
-
   const [userLocation, setUserLocation] = useState(null);
+  const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [cars, setCars] = useState([
     { id: 1, latitude: -26.2041, longitude: 28.0473, speed: 0 },
     { id: 2, latitude: -26.2050, longitude: 28.0450, speed: 0 },
@@ -59,7 +45,22 @@ export default function ViewMap() {
   const [carPositions, setCarPositions] = useState(cars);
   const [closestCar, setClosestCar] = useState(null);
   const [eta, setEta] = useState(0);
-  
+  const [currentSegment, setCurrentSegment] = useState(0);
+  const [animationProgress, setAnimationProgress] = useState(0);
+
+  useFocusEffect(
+    useCallback(() => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor(Colors.BGALT);
+      StatusBar.setTranslucent(true);
+
+      dispatch(setTabColor({
+        background: Colors.BGALT,
+        icons: Colors.TXTALT,
+      }));
+    }, [])
+  );
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -77,9 +78,14 @@ export default function ViewMap() {
         longitudeDelta: 0.05,
       });
     })();
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
-  // Recenter map to user's location
   const handleRecenter = () => {
     if (userLocation && mapRef.current) {
       mapRef.current.animateToRegion({
@@ -91,7 +97,19 @@ export default function ViewMap() {
     }
   };
 
-  // Calculate distance and find the closest car
+  const calculateDistance = (loc1, loc2) => {
+    const R = 6371;
+    const dLat = (loc2.latitude - loc1.latitude) * (Math.PI / 180);
+    const dLon = (loc2.longitude - loc1.longitude) * (Math.PI / 180);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(loc1.latitude * (Math.PI / 180)) * Math.cos(loc2.latitude * (Math.PI / 180)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
+  // Find closest car
   useEffect(() => {
     if (userLocation) {
       const closest = carPositions.reduce((prev, curr) => {
@@ -101,57 +119,90 @@ export default function ViewMap() {
       });
       
       setClosestCar(closest);
-   
     }
-  }, [userLocation, carPositions]);
+  }, [userLocation]);
 
-  const calculateDistance = (loc1, loc2) => {
-    const R = 6371; // Radius of the Earth in km
-    const dLat = (loc2.latitude - loc1.latitude) * (Math.PI / 180);
-    const dLon = (loc2.longitude - loc1.longitude) * (Math.PI / 180);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(loc1.latitude * (Math.PI / 180)) * Math.cos(loc2.latitude * (Math.PI / 180)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in km
-  };
-
-
-
-  // Move the closest car towards the user's location
+  // Animate car along route
   useEffect(() => {
-    if (closestCar) {
-      const interval = setInterval(() => {
-        setCarPositions((prevPositions) =>
-          prevPositions.map((car) => {
-            if (car.id === closestCar.id) {
-              const deltaLatitude = userLocation.latitude - car.latitude;
-              const deltaLongitude = userLocation.longitude - car.longitude;
+    if (routeCoordinates.length > 0 && closestCar) {
+      let startTime;
+      const duration = 3000; // Time to traverse each segment (3 seconds)
 
-              const distance = Math.sqrt(deltaLatitude ** 2 + deltaLongitude ** 2);
-              const moveDistance = 0.0001; // Distance to move each update
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = (timestamp - startTime) / duration;
 
-              // Only move the car if it's not at the user's location
-              if (distance > moveDistance) {
-                const normalizedLat = (deltaLatitude / distance) * moveDistance;
-                const normalizedLng = (deltaLongitude / distance) * moveDistance;
+        if (progress <= 1) {
+          // Get current segment coordinates
+          const start = routeCoordinates[currentSegment];
+          const end = routeCoordinates[currentSegment + 1];
 
-                return {
-                  ...car,
-                  latitude: car.latitude + normalizedLat,
-                  longitude: car.longitude + normalizedLng,
-                };
-              }
-            }
-            return car;
-          })
-        );
-      }, 2000); // Update every 2 seconds
+          if (start && end) {
+            // Linear interpolation between points
+            const newLat = start.latitude + (end.latitude - start.latitude) * progress;
+            const newLng = start.longitude + (end.longitude - start.longitude) * progress;
 
-      return () => clearInterval(interval);
+            // Update car position
+            setCarPositions(prevPositions =>
+              prevPositions.map(car =>
+                car.id === closestCar.id
+                  ? {
+                      ...car,
+                      latitude: newLat,
+                      longitude: newLng,
+                      speed: calculateDistance(start, end) * (3600 / duration), // km/h
+                    }
+                  : car
+              )
+            );
+
+            setAnimationProgress(progress);
+            animationRef.current = requestAnimationFrame(animate);
+          }
+        } else {
+          // Move to next segment
+          if (currentSegment < routeCoordinates.length - 2) {
+            setCurrentSegment(prev => prev + 1);
+            startTime = null;
+            animationRef.current = requestAnimationFrame(animate);
+          }
+        }
+      };
+
+      animationRef.current = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
     }
-  }, [closestCar, userLocation]);
+  }, [routeCoordinates, currentSegment, closestCar]);
+
+  // Move other cars randomly
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarPositions(prevPositions =>
+        prevPositions.map(car => {
+          if (closestCar && car.id === closestCar.id) {
+            return car;
+          }
+
+          const randomLat = (Math.random() - 0.5) * 0.0002;
+          const randomLng = (Math.random() - 0.5) * 0.0002;
+
+          return {
+            ...car,
+            latitude: car.latitude + randomLat,
+            longitude: car.longitude + randomLng,
+            speed: Math.random() * 60,
+          };
+        })
+      );
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [closestCar]);
 
   return (
     <Background>
@@ -191,8 +242,10 @@ export default function ViewMap() {
             strokeWidth={4}
             strokeColor="blue"
             onReady={(result) => {
-              console.log(`Distance: ${result.distance} km`);
-              setEta(result.duration); // Duration in minutes
+              setEta(result.duration);
+              setRouteCoordinates(result.coordinates);
+              setCurrentSegment(0);
+              setAnimationProgress(0);
             }}
           />
         )}
@@ -201,6 +254,7 @@ export default function ViewMap() {
       <TouchableOpacity style={styles.recenterButton} onPress={handleRecenter}>
         <Ionicons name="locate" size={30} color="white" />
       </TouchableOpacity>
+      
       <View style={styles.Container}>
         <View style={styles.Row}>
           <View style={styles.Biomerics}>
@@ -210,20 +264,19 @@ export default function ViewMap() {
                 <Text style={styles.text}>Driver</Text>
             </View>
           </View>
-          <Pressable  style={styles.Contact}>  
+          <Pressable style={styles.Contact}>  
             <FontAwesome6 name="message" size={24} color={Colors.TXTALT} />
             <Ionicons name="call-outline" size={24} color={Colors.TXTALT} style={styles.transform} />
           </Pressable>
         </View>
-        <Pressable onPress={() => {
-              navigation.navigate("DistanceView");
-            }}  style={styles.button}>
+        <View style={styles.button}>
           <Text style={styles.textDriver}>Minimal View</Text>
-        </Pressable>
+        </View>
       </View>
     </Background>
   );
 }
+
 
 const styles = StyleSheet.create({
   Cont: {

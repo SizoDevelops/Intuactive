@@ -71,7 +71,7 @@ export default function Home() {
           <View>
             <Text style={[styles.text]}>For emergency</Text>
             <HomeButton
-              screen={"DistanceView"}
+              screen={"ViewMap"}
               image_path={require("../assets/images/ambulance.png")}
               buttonText={"EmergGo"}
               buttonIcon={

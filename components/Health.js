@@ -84,7 +84,7 @@ export default function Health() {
   
 
   // Ensure data is fetched before rendering the chart
-  if (!data) return <Text>Loading data...</Text>;
+  if (!data) return <Background color={Colors.BGALT}/>;
 
   return (
     <Background color={Colors.BGALT}>

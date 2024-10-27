@@ -3,11 +3,51 @@ import React from 'react'
 import Background from './Background'
 import { Colors } from '../shared/Colors'
 import { normalize } from '../shared/functions'
-import { Button } from 'react-native-web'
-import { getSdkStatus, initialize, openHealthConnectSettings, readRecords, requestPermission, SdkAvailabilityStatus } from 'react-native-health-connect'
+import { DeviceType, getSdkStatus, initialize, insertRecords, openHealthConnectSettings, readRecords, RecordingMethod, requestPermission, revokeAllPermissions, SdkAvailabilityStatus } from 'react-native-health-connect'
+import { useNavigation } from '@react-navigation/native'
+import * as Device from "expo-device"
 
 export default function BluetoothScan() {
 
+
+  const insertSampleData = async () => {
+    try {
+      // Fetch device details asynchronously
+      const brand = Device.brand;
+      const modelName = Device.modelName
+      const deviceType = DeviceType.TYPE_PHONE; // Set to TYPE_WATCH if it's a watch
+  
+      // Now, use these fetched values in your insertRecords function
+      insertRecords([
+        {
+          recordType: 'BodyTemperature',
+          temperature: { unit: 'celsius', value: 37.5 },
+          startTime: '2024-01-09T10:00:00.405Z',
+          endTime: '2024-01-09T10:05:00.405Z',
+          metadata: {
+            recordingMethod: RecordingMethod.RECORDING_METHOD_AUTOMATICALLY_RECORDED,
+            device: {
+              manufacturer: brand,
+              model: modelName,
+              type: deviceType,
+            },
+          },
+        }
+      ])
+      .then((ids) => {
+        console.log('Records inserted ', { ids });
+      })
+      .catch((error) => {
+        console.error('Error inserting records: ', error);
+      });
+    } catch (error) {
+      console.error('Error fetching device information:', error);
+    }
+  };
+
+
+
+  const navigation = useNavigation();
   const initializeHealthConnect = async () => {
     const isInitialized = await initialize();
     console.log({ isInitialized });
@@ -152,13 +192,7 @@ const readSampleData = async () => {
   React.useEffect(() => {
     initializeHealthConnect()
     checkAvailability()
-    
-    const fetchPermissions = async () => {
-      await requestHealthPermissions();
-  };
-
-  fetchPermissions();
-    readSampleData()
+ 
   }, [])
 
   return (
@@ -168,7 +202,7 @@ const readSampleData = async () => {
 
       </View>
       <View style={styles.Contain}>
-        <Text style={styles.heading}>No device found</Text>
+        <Text style={styles.heading}>Health Connect</Text>
       </View>
       <View style={styles.Paragraph}>
         <Text style={styles.text}>Make sure the health accesory you want to add is not already connected to another device.
@@ -176,11 +210,18 @@ const readSampleData = async () => {
         </Text>
       </View>
       <View style={styles.buttonRow}>  
-        <Pressable style={styles.Button}>
-            <Text style={styles.text}>Cancel</Text>
+        <Pressable style={styles.Button} onPress={async () => {
+          navigation.navigate("Home")
+        }}>
+            <Text style={styles.text}>Back</Text>
         </Pressable>
-        <Pressable style={styles.Button}>
-            <Text style={styles.text}>Scan</Text>
+        <Pressable style={styles.Button} onPress={async () => {
+         
+            await requestHealthPermissions();
+
+            openHealthConnectSettings()
+        }}>
+            <Text style={styles.text}>Connect</Text>
         </Pressable>
 
     </View>  
