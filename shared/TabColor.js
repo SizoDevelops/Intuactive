@@ -5,12 +5,14 @@ const TabColor = createSlice({
     name: "TabColor",
     initialState: {
         background: Colors.BG,
-        icons: Colors.TXT
+        icons: Colors.TXT,
+        display: "flex"
     },
     reducers:{
         setTabColor: (state, action) => {
             state.background = action.payload.background
             state.icons = action.payload.icons
+            state.display = action.payload.display
         }
     }
 })

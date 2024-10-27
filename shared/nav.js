@@ -19,7 +19,7 @@ function MyTabBar({ state, descriptors, navigation }) {
   return (
   
     <>  
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: SLIDER_WIDTH, paddingLeft: 35, paddingRight: 35, backgroundColor: colors.background, height: 70,paddingTop: 5, paddingBottom: 8}}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: SLIDER_WIDTH, paddingLeft: 35, paddingRight: 35, backgroundColor: colors.background, height: 70,paddingTop: 5, paddingBottom: 8, display: colors.display}}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const isFocused = state.index === index;

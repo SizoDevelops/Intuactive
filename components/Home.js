@@ -39,6 +39,7 @@ export default function Home() {
         setTabColor({
           background: Colors.BG,
           icons: Colors.TXT,
+          display: "flex"
         })
       );
     }, [])
