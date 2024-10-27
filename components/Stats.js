@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, Pressable, StatusBar, Image } from 'react-native'
 import React, { useCallback, useState } from 'react'
 import Background from './Background'
 import { FontAwesome5, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
@@ -34,8 +34,16 @@ export default function Stats() {
         </View>
         <View style={styles.ContUser}>
           <View style={styles.User}>
+            
+          </View>
+        </View>
+        <View style={styles.InputTab}>
+          <View>
             <TextInput style = {[styles.textInput,{marginLeft: 0},{color: Colors.TXT}]} placeholder={'Chronic Condition Management Quiz'}/>
           </View>
+          <Pressable style={styles.SendButton}>
+          <Image source={require('../assets/images/SendIcon.png')}/>
+          </Pressable>
         </View>
       
     </Background>
@@ -59,7 +67,8 @@ const styles = StyleSheet.create({
       height: 'fit-content',
       width:310,
       marginLeft: 20,
-      paddingHorizontal: 10
+      paddingHorizontal: 10,
+      borderColor: Colors.TXT
     },
     User:{
       backgroundColor: Colors.BG +10,
@@ -71,10 +80,30 @@ const styles = StyleSheet.create({
       height: 'fit-content',
       width:310,
       marginLeft: 60,
-      paddingHorizontal: 10
+      paddingHorizontal: 10,
+      borderColor: Colors.TXT
     },
     botText:{
       color: Colors.TXT
+    },
+    InputTab:{
+      flexDirection: 'row',
+      borderWidth: 1,
+      height: 79,
+      width: 372,
+      marginTop: 350,
+      marginHorizontal: 'auto',
+      paddingLeft: 10,
+      paddingTop : 10,
+      gap: 60,
+      borderRadius: 25,
+      borderColor: Colors.TXT
+      
+
+    },
+    SendButton:{
+      marginTop: 3,
+      
     }
   
     
