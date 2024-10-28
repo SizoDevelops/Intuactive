@@ -109,17 +109,21 @@ export default function Stats() {
             <TextInput value={userPrompt} onChangeText={(e) => setPrompt(e)} numberOfLines={4} multiline  style = {[{color: Colors.TXT, width: "82%", height: "100%", fontSize: normalize(16)}]} placeholder={'Chronic Condition Management Quiz'} placeholderTextColor={"#ddd"}/>
 
               <TouchableOpacity style={styles.SendButton} onPress={async() => {
+                if (userPrompt.length > 0){
+                  setUserQs(prep => [...prep, {
+                    id: 0, 
+                    text: userPrompt
+                  }])
+                  const some = await TalkToAI(userPrompt)
+                  setPrompt("")
+                  setUserQs(prep => [...prep, {
+                    id: 1, 
+                    text: some
+                  
+                  }])
+                  }
+                  
                 
-                setUserQs(prep => [...prep, {
-                  id: 0, 
-                  text: userPrompt
-                }])
-                const some = await TalkToAI(userPrompt)
-                setPrompt("")
-                setUserQs(prep => [...prep, {
-                  id: 1, 
-                  text: some
-                }])
 
                
               }}>
