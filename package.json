@@ -47,6 +47,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
     "react-native-config": "^1.5.3",
+    "react-native-dotenv": "^3.4.11",
     "react-native-draggable-flatlist": "^4.0.1",
     "react-native-elements": "^3.4.3",
     "react-native-geolocation-service": "^5.3.1",
@@ -72,8 +73,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "expo-build-properties": "^0.12.5",
-    "metro-react-native-babel-preset": "^0.77.0",
-    "react-native-dotenv": "^3.4.11"
+    "metro-react-native-babel-preset": "^0.77.0"
   },
   "private": true
 }
