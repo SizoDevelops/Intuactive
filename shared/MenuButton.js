@@ -54,7 +54,7 @@ const MenuComponent = ({ closeMenu }) => {
         <Text style={styles.menuText}>Find Assistance</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.menuOption, {position: "absolute", bottom: 100, width: "100%", borderTopEndRadius: 25, borderBottomEndRadius: 0, borderColor: Colors.BG, alignItems: "center"}]} onPress={() => { closeMenu(); }}>
+      <TouchableOpacity style={[styles.menuOption, {position: "absolute", bottom: 100, width: "100%", borderTopEndRadius: 25, borderBottomEndRadius: 0, borderColor: Colors.BG, alignItems: "center"}]} onPress={() => { closeMenu(); navigation.navigate("LoginHome") }}>
       <AntDesign name="logout" size={30} color="white" />
         <Text style={styles.menuText}>Sign Out</Text>
       </TouchableOpacity>
