@@ -9,6 +9,7 @@ import MenuButton from '../shared/MenuButton';
 import { LineChart } from 'react-native-gifted-charts';
 import Checkbox from 'expo-checkbox';
 
+
 export default function Health() {
   const [isChecked1, setChecked1] = useState(true);
   const [isChecked2, setChecked2] = useState(true);

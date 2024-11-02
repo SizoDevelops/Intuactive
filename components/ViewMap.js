@@ -206,9 +206,17 @@ export default function ViewMap() {
 
   return (
     <Background>
+      <View style={styles.BackCont}>
+      <Pressable style = {styles.Back} onPress={() => {
+                    navigation.goBack()
+                }}>
+                    <FontAwesome6 style = {styles.BackIcon} name="arrow-right-to-bracket" size={40} color={Colors.BG} />
+                </Pressable>
+                
       <View style={styles.Cont}>
         <Text>Sizo Mhlongo</Text>
         {closestCar && <Text style={styles.etaText}>ETA: {eta != Infinity ? eta.toFixed(0) : null} min</Text>}
+      </View>
       </View>
 
       <MapView
@@ -269,9 +277,9 @@ export default function ViewMap() {
             <Ionicons name="call-outline" size={24} color={Colors.TXTALT} style={styles.transform} />
           </Pressable>
         </View>
-        <View style={styles.button}>
+        <Pressable style={styles.button} onPress={() => { navigation.navigate("DistanceView")}}>
           <Text style={styles.textDriver}>Minimal View</Text>
-        </View>
+        </Pressable>
       </View>
     </Background>
   );
@@ -352,6 +360,14 @@ const styles = StyleSheet.create({
   },
   textDriver:{
     color: Colors.TXT
+  },
+  BackIcon:{
+    transform: [{rotate:'180deg'}],
+    marginTop: 35,
+    marginLeft: 10
+  },
+  BackCont:{
+    flexDirection: 'row'
   }
   
   
