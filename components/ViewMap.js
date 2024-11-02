@@ -11,7 +11,7 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
-import Config from '../config';
+import {GOOGLE_MAPS_API_KEY} from '@env'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 export default function ViewMap() {
@@ -246,7 +246,7 @@ export default function ViewMap() {
           <MapViewDirections
             origin={closestCar}
             destination={userLocation}
-            apikey={Config.GOOGLE_MAPS_API_KEY}
+            apikey={GOOGLE_MAPS_API_KEY}
             strokeWidth={4}
             strokeColor="blue"
             onReady={(result) => {

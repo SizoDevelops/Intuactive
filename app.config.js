@@ -1,4 +1,4 @@
-
+import {GOOGLE_MAPS_API_KEY} from '@env'
 
 export default {
   expo: {
@@ -32,7 +32,7 @@ export default {
       package: "com.sizodevelops.Intuactive",
       config: {
         googleMaps: {
-          apiKey: process.env.GOOGLE_MAPS_API_KEY
+          apiKey: GOOGLE_MAPS_API_KEY
         }
       },
       permissions: [
