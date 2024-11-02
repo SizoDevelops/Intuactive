@@ -11,6 +11,7 @@ import { normalize, SLIDER_WIDTH } from '../shared/functions'
 import { TextInput } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { TalkToAI } from '../shared/Gemini'
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 
 const AIConp = ({message}) => {
   return(
@@ -85,7 +86,15 @@ export default function Stats() {
   },[])
   return (
     <Background>
-      <Text style={styles.Text}>Personal Companion</Text>
+      <View style={styles.ContBack}>
+        <Pressable style = {styles.Back} onPress={() => {
+                    navigation.goBack()
+                }}>
+                    <FontAwesome6 style = {styles.BackIcon} name="arrow-right-to-bracket" size={30} color={Colors.TXT} />
+                </Pressable>
+                <Text style={styles.Text}>Personal Companion</Text>
+      </View>
+      
         <View style={{flex: 1, alignItems: "center"}}>
         <ScrollView  ref={scrollViewRef}
       onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })} snapToEnd style={{flex: 1, flexDirection: "column", paddingBottom: 80}}>
@@ -206,8 +215,14 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       justifyContent: "space-between",
       fontSize: normalize(16)
+    },
+    BackIcon:{
+      transform: [{rotate:'180deg'}],
+      marginTop: 30,
+      marginLeft: 10
+    },
+    ContBack:{
+      flexDirection: 'row'
     }
-  
-    
 
   })
