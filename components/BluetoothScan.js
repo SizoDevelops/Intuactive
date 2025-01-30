@@ -219,7 +219,7 @@ const readSampleData = async () => {
          
             await requestHealthPermissions();
 
-            openHealthConnectSettings()
+            // openHealthConnectSettings()
         }}>
             <Text style={styles.text}>Connect</Text>
         </Pressable>
