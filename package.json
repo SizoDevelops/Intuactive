@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@babel/plugin-syntax-jsx": "^7.25.9",
     "expo-build-properties": "^0.12.5",
     "metro-react-native-babel-preset": "^0.77.0",
     "react-native-dotenv": "^3.4.11"

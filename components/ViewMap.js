@@ -11,8 +11,11 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
-import {GOOGLE_MAPS_API_KEY} from '@env'
+
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+
+
+const GOOGLE_MAPS_API_KEY = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY
 
 export default function ViewMap() {
   const [regions, setRegion] = useState({
