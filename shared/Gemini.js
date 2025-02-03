@@ -4,8 +4,7 @@ const {
   GoogleGenerativeAI,
 } = require("@google/generative-ai");
 
-const GOOGLE_MAPS_API_KEY = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY
-const apiKey = GOOGLE_MAPS_API_KEY
+const apiKey = process.env.EXPO_PUBLIC_GOOGLE_GEMINI_KEY
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
