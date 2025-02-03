@@ -34,6 +34,8 @@ export default {
         googleMaps: {
           apiKey: GOOGLE_MAPS_API_KEY
         }
+
+      
       },
       permissions: [
         "android.permission.ACCESS_COARSE_LOCATION",
@@ -90,7 +92,7 @@ export default {
     ],
     extra: {
       eas: {
-        projectId: "dc25a065-297c-4c64-aebb-e00c623dca51"
+        projectId: "8d6e5f94-7ff3-4d36-a064-57bc4e2dd320"
       }
     }
   }
